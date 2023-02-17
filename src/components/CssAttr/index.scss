@@ -1,0 +1,56 @@
+// css :empty 伪类
+.box-empty {
+    background: pink;
+    height: 80px;
+    width: 80px;
+
+    &:empty {
+        background: lime;
+    } 
+}
+
+// position sticky
+.sticky-container {
+    background-color: oldlace;
+    height: 600px;
+    width: 400px;
+    overflow: auto;
+
+    & div {
+        height: 100px;
+        background-color: aqua;
+        border: 1px solid;
+    }
+    
+    &-header {
+        position: sticky;
+        top: 0;
+        background-color: rgb(187, 153, 153);
+    }
+}
+
+// background-clip
+.background-clip {
+   p {
+        border: .8em darkviolet;
+        border-style: dotted double;
+        margin: 1em 0;
+        padding: 1.4em;
+        background: linear-gradient(60deg, red, yellow, red, yellow, red);
+        font: 900 1.2em sans-serif;
+        text-decoration: underline;
+    }
+      
+    .border-box { background-clip: border-box; }
+    .padding-box { background-clip: padding-box; }
+    .content-box { background-clip: content-box; }
+    
+    .text {
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: rgba(0,0,0,.2);
+    }
+}
+
+  
+  
