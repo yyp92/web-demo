@@ -1,0 +1,54 @@
+@mixin active-text {
+    color: #25c2a0;
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background-color: rgb(246 247 249);
+  
+    .leftSide {
+        width: 240px;
+        height: 100%;
+        overflow-y: auto;
+    
+        box-sizing: border-box;
+        padding: 10px;
+        background-color: #fff;
+
+        ul {
+            padding-left: 8px;
+        }
+
+        .leftSideItem {
+            // padding: 8px;
+
+            & > li > a {
+                display: block;
+                overflow: hidden;
+                box-sizing: border-box;
+                width: 100% !important;
+                margin: 4px 0;
+                padding: 6px;
+                border-radius: 6px;
+                color: #606770;
+
+                &:hover {
+                    @include active-text;
+                }
+            }
+
+            .leftSideItemActive {
+                @include active-text;
+            }
+        }
+    }
+    
+    .content {
+        flex: 1;
+        overflow-y: auto;
+        border: 1px solid #e5e7eb;
+    }
+}
