@@ -1,0 +1,154 @@
+import React from 'react';
+import Ttml2canvas from './components/Ttml2canvas'
+import {
+    ChartEvenDistribution,
+    ChartGaussianDistribution,
+    ChartLogarithmDistribution,
+    ChartPoissonDistribution,
+    ChartExponentDistribution,
+    ChartBinomialDistribution,
+    ChartGammaDistribution,
+} from './components/Antv/G2'
+
+export interface RouterConfigItem {
+    key: string;
+    parentKey?: string
+    index?: true
+    text?: string;
+    template?: null | React.ReactElement;
+    link?: string;
+    icon: null | React.ReactElement;
+    children?: RouterConfigItem[]
+}
+
+// 路由配置项
+export const routerConfig: RouterConfigItem[] = [
+    {
+        key: 'js-demo',
+        text: 'js-demo',
+        link: '/js-demo',
+        // template: <Home />,
+        icon: null,
+        // children: [],
+        children: [
+            {
+                key: 'Ttml2canvas',
+                parentKey: 'js-demo',
+                index: true,
+                text: 'Ttml2canvas',
+                link: '/',
+                template: <Ttml2canvas />,
+                icon: null,
+            },
+            {
+                key: 'home2',
+                parentKey: 'home',
+                text: 'Home2',
+                link: 'home2',
+                template: <>Home2</>,
+                icon: null,
+            }
+        ],
+    },
+    {
+        key: 'about',
+        text: 'About',
+        link: 'about',
+        // template: <>about</>,
+        icon: null,
+        children: [
+            {
+                key: 'about1',
+                parentKey: 'about',
+                index: true,
+                text: 'about1',
+                link: '/',
+                template: <>about1</>,
+                icon: null,
+            },
+            {
+                key: 'about2',
+                parentKey: 'about',
+                text: 'about2',
+                link: 'about2',
+                template: <>about2</>,
+                icon: null,
+            }
+        ],
+    },
+    {
+        key: 'antv',
+        text: 'antv',
+        link: 'antv',
+        // template: <>dashboard</>,
+        icon: null,
+        children: [
+            {
+                key: 'g2-ChartEvenDistribution',
+                parentKey: 'antv',
+                index: true,
+                text: '概率分布-正态分布',
+                link: '/',
+                template: <ChartEvenDistribution />,
+                icon: null,
+            },
+            {
+                key: 'g2-ChartGaussianDistribution',
+                parentKey: 'antv',
+                text: '概率分布-高斯分布',
+                link: 'g2-ChartGaussianDistribution',
+                template: <ChartGaussianDistribution />,
+                icon: null,
+            },
+            {
+                key: 'g2-ChartLogarithmDistribution',
+                parentKey: 'antv',
+                text: '概率分布-对数正态分布',
+                link: 'g2-ChartLogarithmDistribution',
+                template: <ChartLogarithmDistribution />,
+                icon: null,
+            },
+            {
+                key: 'g2-ChartPoissonDistribution',
+                parentKey: 'antv',
+                text: '概率分布-泊松分布',
+                link: 'g2-ChartPoissonDistribution',
+                template: <ChartPoissonDistribution />,
+                icon: null,
+            },
+            {
+                key: 'g2-ChartExponentDistribution',
+                parentKey: 'antv',
+                text: '概率分布-指数分布',
+                link: 'g2-ChartExponentDistribution',
+                template: <ChartExponentDistribution />,
+                icon: null,
+            },
+            {
+                key: 'g2-ChartBinomialDistribution',
+                parentKey: 'antv',
+                text: '概率分布-二项分布',
+                link: 'g2-ChartBinomialDistribution',
+                template: <ChartBinomialDistribution />,
+                icon: null,
+            },
+            {
+                key: 'g2-ChartGammaDistribution',
+                parentKey: 'antv',
+                text: '概率分布-伽马分布',
+                link: 'g2-ChartGammaDistribution',
+                template: <ChartGammaDistribution />,
+                icon: null,
+            },
+        ],
+    },
+
+    // 使用 path="*"" 意味着 "匹配所有路径", 所以我们不需要明确地列出别的路径了。
+    {
+        key: '404',
+        link: '*',
+        template: <>404</>,
+        icon: null,
+        children: [],
+    }
+]

@@ -1,0 +1,7 @@
+export * from './ChartEvenDistribution'
+export * from './ChartGaussianDistribution'
+export * from './ChartLogarithmDistribution'
+export * from './ChartPoissonDistribution'
+export * from './ChartExponentDistribution'
+export * from './ChartBinomialDistribution'
+export * from './ChartGammaDistribution'

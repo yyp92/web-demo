@@ -1,20 +1,11 @@
 // ! layout 布局
-import React from 'react';
-import { Routes, Route, Outlet, Link, useRoutes } from 'react-router-dom';
+import React, {useEffect} from 'react';
+import { Routes, Route, Outlet, Link, useRoutes, useLocation, useNavigate } from 'react-router-dom';
 import c from 'classnames'
 
-import s from './index.module.scss'
+import {RouterConfigItem, routerConfig} from './routerConfig'
 
-interface RouterConfigItem {
-    key: string;
-    parentKey?: string
-    index?: true
-    text?: string;
-    template?: null | React.ReactElement;
-    link?: string;
-    icon: null | React.ReactElement;
-    children?: RouterConfigItem[]
-}
+import s from './index.module.scss'
 
 /**
  * <Route path="/" element={<LayoutPage />}>
@@ -31,81 +22,14 @@ interface RouterConfigItem {
     </Route>
  */
 
-// 路由配置项
-const routerConfig: RouterConfigItem[] = [
-    {
-        key: 'home',
-        text: 'Home',
-        link: '/',
-        // template: <Home />,
-        icon: null,
-        // children: [],
-        children: [
-            {
-                key: 'home1',
-                parentKey: 'home',
-                index: true,
-                text: 'Home1',
-                link: '/',
-                template: <>Home1</>,
-                icon: null,
-            },
-            {
-                key: 'home2',
-                parentKey: 'home',
-                text: 'Home2',
-                link: '2',
-                template: <>Home2</>,
-                icon: null,
-            }
-        ],
-    },
-    {
-        key: 'about',
-        text: 'About',
-        link: 'about',
-        // template: <>about</>,
-        icon: null,
-        children: [
-            {
-                key: 'about1',
-                parentKey: 'about',
-                index: true,
-                text: 'about1',
-                link: '/',
-                template: <>about1</>,
-                icon: null,
-            },
-            {
-                key: 'about2',
-                parentKey: 'about',
-                text: 'about2',
-                link: '2',
-                template: <>about2</>,
-                icon: null,
-            }
-        ],
-    },
-    {
-        key: 'dashboard',
-        text: 'Dashboard',
-        link: 'dashboard',
-        template: <>dashboard</>,
-        icon: null,
-        children: [],
-    },
-
-    // 使用 path="*"" 意味着 "匹配所有路径", 所以我们不需要明确地列出别的路径了。
-    {
-        key: '404',
-        link: '*',
-        template: <>404</>,
-        icon: null,
-        children: [],
-    }
-]
 
 const routeList: any = []
+
+// 全局context, 创建context
+const LoyoutContext = React.createContext<any>({})
+// 一级菜单的第一个的key
+let firstKey = ''
+
 
 // 递归的模板
 const renderNavItem = (
@@ -115,7 +39,13 @@ const renderNavItem = (
     index: number = 0,
     item?: RouterConfigItem
 ) => {
+    const {initPathname = ''} = React.useContext(LoyoutContext)
     const path = item?.link
+
+    // 匹配以 ** 结尾
+    const matchEndActivePath = (path: string) => {
+        return new RegExp(`${path}$`, 'g')
+    }
 
     return (
         <ul
@@ -135,35 +65,30 @@ const renderNavItem = (
                         index: iindex
                     } = item
 
-                    // if (parentKey) {
-                    //     const index = routeList.findIndex((item: any) => item?.key === parentKey)
-
-                    //     if (index > -1) {
-                    //         routeList[index].children.push({
-                    //             key,
-                    //             path: link,
-                    //             element: template
-                    //         })
-                    //     }
-                       
-                    // }
-                    // else {
-                    //     routeList[index] = {
-                    //         key,
-                    //         path: link,
-                    //         element: template,
-                    //         children: Array.isArray(children) ? [] : undefined
-                    //     }
-                    // }
+                    if (!firstKey) {
+                        firstKey = key
+                    }
 
                     const newLink = path && path !== '/' ? `${path}${link === '/' ? '' : '/' + link}` : link
+                    const isActive = 
+                        // 点击时的激活
+                        active === key
+                        // 点击二级菜单时，让一级菜单激活
+                        || initPathname.indexOf(key) > -1
+                        // 刷新时，二级菜单激活
+                        || parentKey && (
+                            // 二级菜单不是第一个的情况
+                            matchEndActivePath(key).test(initPathname)
+                            // 二级菜单是第一个的情况
+                            || (parentKey === initPathname.slice(1)) && iindex  
+                        )
 
                     if (Array.isArray(children) && children?.length) {
                         return (
                             <li key={key}>
                                 <Link
                                     className={c({
-                                        [s.leftSideItemActive]: active === key
+                                        [s.leftSideItemActive]: isActive
                                     })}
                                     onClick={() => handleItemClick(key) as any}
                                     to={newLink as any}
@@ -178,7 +103,7 @@ const renderNavItem = (
                         text && <li key={key}>
                             <Link
                                 className={c({
-                                    [s.leftSideItemActive]: active === key
+                                    [s.leftSideItemActive]: isActive
                                 })}
                                 onClick={() => handleItemClick(key) as any}
                                 to={newLink as any}
@@ -193,7 +118,16 @@ const renderNavItem = (
 
 // layout
 const renderNav = (list: RouterConfigItem[]) => {
+    const {initPathname = ''} = React.useContext(LoyoutContext)
+    const navigate = useNavigate()
     const [active, setActive] = React.useState<string>('home')
+
+    useEffect(() => {
+        // navigate('')
+        if (initPathname === '/') {
+            navigate(`/${firstKey}`)
+        }
+    }, [])
 
     // 点击路由
     const handleItemClick = (key: string) => {
@@ -286,7 +220,11 @@ const render1 = () => {
  * 渲染路由
  */
 const Layout = () => {
-    const element = useRoutes(routeList)
+    // const element = useRoutes(routeList)
+    // 初始化激活路径
+    const {pathname = ''} = useLocation() ?? {}
+    const defaultContext = {initPathname: pathname}
+    
 
     /**
      * 路由嵌套， 嵌套的子路由路径是基于父路由路径生成的，
@@ -295,15 +233,17 @@ const Layout = () => {
 
     return (
         <React.Fragment>
-            <Routes>
-                {/* {renderRouterItem(routerConfig)} */}
-                <Route path="/" element={<LayoutPage />}>
-                    {renderRouterItem(routerConfig)}
-                </Route>
+            <LoyoutContext.Provider value={defaultContext}>
+                <Routes>
+                    {/* {renderRouterItem(routerConfig)} */}
+                    <Route path="/" element={<LayoutPage />}>
+                        {renderRouterItem(routerConfig)}
+                    </Route>
 
-                {/* {render1()} */}
-            </Routes>
-            {/* {element} */}
+                    {/* {render1()} */}
+                </Routes>
+                {/* {element} */}
+            </LoyoutContext.Provider>
         </React.Fragment>
     )        
 }

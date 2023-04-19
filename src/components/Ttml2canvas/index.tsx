@@ -9,7 +9,7 @@ function Ttml2canvas() {
 
   return (
     <React.Fragment>
-        <div id="recoil-wrap">
+        <div id="recoil-wrap" style={{textAlign: 'center'}}>
             <div>html2canvas学习,dom转为图片</div>
             
             <img alt="测试logo" src={reactLogo} />
