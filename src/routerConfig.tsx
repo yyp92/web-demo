@@ -9,6 +9,11 @@ import {
     ChartBinomialDistribution,
     ChartGammaDistribution,
 } from './components/Antv/G2'
+import {
+    Empty,
+    StickyPage,
+    BackgroundClip,
+} from './components/CssAttr'
 
 export interface RouterConfigItem {
     key: string;
@@ -40,40 +45,48 @@ export const routerConfig: RouterConfigItem[] = [
                 template: <Ttml2canvas />,
                 icon: null,
             },
-            {
-                key: 'home2',
-                parentKey: 'home',
-                text: 'Home2',
-                link: 'home2',
-                template: <>Home2</>,
-                icon: null,
-            }
+            // {
+            //     key: 'home2',
+            //     parentKey: 'home',
+            //     text: 'Home2',
+            //     link: 'home2',
+            //     template: <>Home2</>,
+            //     icon: null,
+            // }
         ],
     },
     {
-        key: 'about',
-        text: 'About',
-        link: 'about',
+        key: 'css-demo',
+        text: 'css-demo',
+        link: 'css-demo',
         // template: <>about</>,
         icon: null,
         children: [
             {
-                key: 'about1',
-                parentKey: 'about',
+                key: 'empty',
+                parentKey: 'css-demo',
                 index: true,
-                text: 'about1',
+                text: '伪类-empty',
                 link: '/',
-                template: <>about1</>,
+                template: <Empty />,
                 icon: null,
             },
             {
-                key: 'about2',
-                parentKey: 'about',
-                text: 'about2',
-                link: 'about2',
-                template: <>about2</>,
+                key: 'sticky',
+                parentKey: 'css-demo',
+                text: 'position-sticky',
+                link: 'sticky',
+                template: <StickyPage />,
                 icon: null,
-            }
+            },
+            {
+                key: 'background-clip',
+                parentKey: 'css-demo',
+                text: 'background-clip',
+                link: 'background-clip',
+                template: <BackgroundClip />,
+                icon: null,
+            },
         ],
     },
     {

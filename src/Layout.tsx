@@ -82,10 +82,15 @@ const renderNavItem = (
                             // 二级菜单是第一个的情况
                             || (parentKey === initPathname.slice(1)) && iindex  
                         )
+                    // 只有激活的一级菜单展开
+                    const troggle = !isActive && !parentKey
 
                     if (Array.isArray(children) && children?.length) {
                         return (
-                            <li key={key}>
+                            <li
+                                key={key}
+                                className={c({[s.leftSideItemHidden]: troggle})}
+                            >
                                 <Link
                                     className={c({
                                         [s.leftSideItemActive]: isActive
@@ -100,7 +105,10 @@ const renderNavItem = (
                     }
 
                     return (
-                        text && <li key={key}>
+                        text && <li
+                            key={key}
+                            className={c({[s.leftSideItemHidden]: troggle})}
+                        >
                             <Link
                                 className={c({
                                     [s.leftSideItemActive]: isActive

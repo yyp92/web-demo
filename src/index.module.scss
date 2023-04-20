@@ -24,6 +24,7 @@
 
         .leftSideItem {
             // padding: 8px;
+            height: auto;
 
             & > li > a {
                 display: block;
@@ -43,6 +44,11 @@
             .leftSideItemActive {
                 @include active-text;
             }
+        }
+
+        .leftSideItemHidden {
+            height: 44px;
+            overflow: hidden;
         }
     }
     

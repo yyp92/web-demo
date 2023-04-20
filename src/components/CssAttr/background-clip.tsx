@@ -1,7 +1,7 @@
 //! background-clip
 import './index.scss'
 
-function BackgroundClip() {
+export function BackgroundClip() {
     return (
         <div className='background-clip'>
             <p className="border-box">The background extends behind the border.</p>
@@ -11,5 +11,3 @@ function BackgroundClip() {
         </div>
     )
 }
-
-export default BackgroundClip

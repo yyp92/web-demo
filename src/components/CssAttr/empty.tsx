@@ -1,7 +1,7 @@
 //! css :empty 伪类
 import './index.scss'
 
-const Empty = () => {
+export const Empty = () => {
     return (
         <>
             <div className="box-empty">
@@ -15,5 +15,3 @@ const Empty = () => {
         </>
     )
 }
-
-export default Empty

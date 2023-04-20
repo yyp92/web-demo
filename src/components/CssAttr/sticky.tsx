@@ -2,7 +2,7 @@
 
 import './index.scss'
 
-const StickyPage = () => {
+export const StickyPage = () => {
     return (
         <div className="sticky-container">
             <div className="sticky-container-header">Header</div>
@@ -15,6 +15,4 @@ const StickyPage = () => {
         </div>
     )
 }
-
-export default StickyPage
 
