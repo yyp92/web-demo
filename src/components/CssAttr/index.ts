@@ -4,3 +4,4 @@
 export * from './empty'
 export * from './sticky'
 export * from './background-clip'
+export * from './CssMask'

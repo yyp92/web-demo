@@ -13,6 +13,7 @@ import {
     Empty,
     StickyPage,
     BackgroundClip,
+    CssMask,
 } from './components/CssAttr'
 
 export interface RouterConfigItem {
@@ -85,6 +86,14 @@ export const routerConfig: RouterConfigItem[] = [
                 text: 'background-clip',
                 link: 'background-clip',
                 template: <BackgroundClip />,
+                icon: null,
+            },
+            {
+                key: 'css-mask',
+                parentKey: 'css-demo',
+                text: 'css-mask',
+                link: 'css-mask',
+                template: <CssMask />,
                 icon: null,
             },
         ],

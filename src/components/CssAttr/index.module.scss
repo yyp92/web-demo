@@ -1,0 +1,288 @@
+// cssMask
+.cssMask {
+    h3 {
+        box-sizing: border-box;
+        padding: 8px;
+        // border-bottom: 1px dashed #ccc;
+        position: relative;
+
+        &::before {
+            content: '';
+            width: 3px;
+            height: 24px;
+            background-color: var(--primary-color);
+            position: absolute;
+            left: 0;
+            top: 10px;
+        }
+    }
+}
+
+.imgWrap {
+    margin: 10px auto 20px;
+    position: relative;
+    // width: 25vw;
+    // height: 50vh;
+
+    width: 486px;
+    height: 246px;
+}
+
+.imgWrap1 {
+    background: url(@/assets/mask-1.jpg) no-repeat;
+    background-size: cover;
+    mask: linear-gradient(90deg, transparent, #000);
+}
+
+.imgWrap2 {
+    background: url(@/assets/mask-3.png) no-repeat;
+    background-size: cover;
+    mask:
+        linear-gradient(135deg, transparent 15px, #fff 0)
+        top left,
+        linear-gradient(-135deg, transparent 15px, #fff 0)
+        top right,
+        linear-gradient(-45deg, transparent 15px, #fff 0)
+        bottom right,
+        linear-gradient(45deg, transparent 15px, #fff 0)
+        bottom left;
+    mask-size: 50% 50%;
+    mask-repeat: no-repeat;
+}
+
+.imgWrap3 {
+    background: url(@/assets/mask-1.jpg) no-repeat;
+    background-size: cover;
+
+    &::before {
+        position: absolute;
+        content: "";
+        top: 0;left: 0; right: 0;bottom: 0;
+        background: url(@/assets/mask-2.jpg) no-repeat;
+        background-size: cover;
+        mask: linear-gradient(45deg, #000 40%, transparent 60%);
+        z-index: 1;
+    }
+}
+
+.imgWrap4 {
+    width: 512px;
+    height: 288px;
+    background: url(@/assets/mask-1.jpg) no-repeat;
+    background-size: cover;
+    
+    &::before {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0; 
+        right: 0;
+        bottom: 0;
+        background: url(@/assets/mask-2.jpg) no-repeat;
+        background-size: cover;
+        z-index: 1;
+        animation: maskRotate 4s ease-in-out infinite;
+    }
+}
+
+.imgWrap5 {
+    width: 512px;
+    height: 288px;
+    background: url(@/assets/mask-1.jpg) no-repeat;
+    background-size: cover;
+    
+    &::before {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0; 
+        right: 0;
+        bottom: 0;
+        background: url(@/assets/mask-2.jpg) no-repeat;
+        background-size: cover;
+        z-index: 1;
+        animation: maskRotate1 4s linear infinite;
+    }
+}
+
+.imgWrap6 {
+    background: #fff;
+    filter: contrast(5);
+    
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: radial-gradient(#000, transparent);
+        background-size: 20px 20px;
+    }
+}
+
+.imgWrap7 {
+    background: #fff;
+    filter: contrast(5);
+    
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: radial-gradient(#000, transparent);
+        background-size: 20px 20px;
+        mask: linear-gradient(-180deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, .5));
+    }
+}
+
+.imgWrap8 {
+    background: #fff;
+    filter: contrast(5);
+    
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: radial-gradient(#000, transparent);
+        background-size: 20px 20px;
+        mask: repeating-radial-gradient(circle at 35% 65%, #000, rgba(0, 0, 0, .5), #000 25%);
+    }
+}
+
+.imgWrap9 {
+    background: #fff;
+    filter: contrast(5);
+    
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: radial-gradient(#000, transparent);
+        background-size: 20px 20px;
+        mask: repeating-radial-gradient(circle at 35% 65%, #000, rgba(0, 0, 0, .5), #000 25%);
+        animation: maskMove 15s linear infinite;
+    }
+}
+
+.imgWrap10 {
+    background: #fff;
+    filter: contrast(5);
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0; right: 0; bottom: 0; left: 0;
+        background: radial-gradient(#0044aa, transparent);
+        background-size: 20px 20px;
+        mask: repeating-radial-gradient(circle at 35% 65%, red, rgba(255, 0, 0, .5), #000 25%);
+        animation: maskMove1 20s infinite ease-in-out alternate;
+    }
+}
+
+.imgWrap11 {
+    background: #fff;
+    filter: contrast(5);
+    background: linear-gradient(45deg, #f44336, #ff9800, #ffeb3b, #8bc34a, #00bcd4, #673ab7);
+
+    .inner {
+        height: 100%;
+        background: #000;
+        filter: contrast(500%);
+        mix-blend-mode: multiply;
+        
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: radial-gradient(#fff, transparent);
+            background-size: 12px 12px;
+            mask: linear-gradient(#000, rgba(0, 0, 0, .5));
+        }
+    }
+}
+
+.imgWrap12 {
+    width: 512px;
+    height: 288px;
+    position: relative;
+
+    .inner1, .inner2 {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+
+    .inner1 {
+        background: url(@/assets/mask-1.jpg) no-repeat;
+        background-size: cover;
+    }
+
+    .inner2 {
+        background: url(@/assets/mask-2.jpg) no-repeat;
+        background-size: cover;
+        mask: url(@/assets/mask-4.png);
+        mask-size: 3000% 100%;
+        animation: maskMove2 2s steps(29) infinite;
+    }
+}
+
+
+@keyframes maskMove {
+    @for $i from 0 through 100 { 
+        #{$i + '%'} {
+            mask: repeating-radial-gradient(circle at 35% 65%, #000, rgba(0, 0, 0, .5), #000 #{$i + 10 +  '%'});
+        }
+    }
+}
+
+@keyframes maskMove1 {
+    @for $i from 0 through 100 { 
+        #{$i + '%'} {
+            mask: repeating-radial-gradient(circle at 35% 65%, #000, rgba(0, 0, 0, .6), #000 #{$i / 3 + 10 + '%'});
+            filter: hue-rotate(#{$i * 3.6 + 'deg'})
+        }
+    }
+}
+
+@keyframes maskMove2 {
+    from {
+        mask-position: 0 0;
+    }
+    to {
+        mask-position: 100% 0;
+    }
+}
+
+@keyframes maskRotate {
+    @for $i from 0 through 50 { 
+        #{$i + '%'} {
+            mask: linear-gradient(45deg, #000 #{$i * 2 + '%'}, transparent #{$i * 2.5 + '%'}, transparent #{$i * 2.5 + '%'});
+        }
+    }
+
+    100% {
+        mask: linear-gradient(45deg, #000, #000 100%);
+    }
+}
+
+@keyframes maskRotate1 {
+    @for $i from 0 through 100 { 
+        #{$i + '%'} {
+            mask: conic-gradient(#000 #{$i - 8 + '%'}, transparent #{$i + '%'}, transparent);
+        }
+    }
+}
