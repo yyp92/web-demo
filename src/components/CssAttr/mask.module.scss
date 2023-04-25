@@ -1,4 +1,4 @@
-// cssMask
+// css Mask
 .cssMask {
     h3 {
         box-sizing: border-box;
@@ -239,7 +239,6 @@
         animation: maskMove2 2s steps(29) infinite;
     }
 }
-
 
 @keyframes maskMove {
     @for $i from 0 through 100 { 

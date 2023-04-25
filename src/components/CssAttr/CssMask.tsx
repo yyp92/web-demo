@@ -1,6 +1,6 @@
 import React from 'react'
 import c from 'classnames'
-import s from './index.module.scss'
+import s from './mask.module.scss'
 
 export const CssMask = () => {
     return (
