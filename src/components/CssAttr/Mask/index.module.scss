@@ -1,21 +1,21 @@
 // css Mask
 .cssMask {
-    h3 {
-        box-sizing: border-box;
-        padding: 8px;
-        // border-bottom: 1px dashed #ccc;
-        position: relative;
+    // h3 {
+    //     box-sizing: border-box;
+    //     padding: 8px;
+    //     // border-bottom: 1px dashed #ccc;
+    //     position: relative;
 
-        &::before {
-            content: '';
-            width: 3px;
-            height: 24px;
-            background-color: var(--primary-color);
-            position: absolute;
-            left: 0;
-            top: 10px;
-        }
-    }
+    //     &::before {
+    //         content: '';
+    //         width: 3px;
+    //         height: 24px;
+    //         background-color: var(--primary-color);
+    //         position: absolute;
+    //         left: 0;
+    //         top: 10px;
+    //     }
+    // }
 }
 
 .imgWrap {

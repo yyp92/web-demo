@@ -14,6 +14,8 @@ import {
     StickyPage,
     BackgroundClip,
     CssMask,
+    CssVariableAnimation,
+    BubbleLoading,
 } from './components/CssAttr'
 
 export interface RouterConfigItem {
@@ -89,11 +91,27 @@ export const routerConfig: RouterConfigItem[] = [
                 icon: null,
             },
             {
-                key: 'css-mask',
+                key: 'mask',
                 parentKey: 'css-demo',
-                text: 'css-mask',
-                link: 'css-mask',
+                text: 'mask',
+                link: 'mask',
                 template: <CssMask />,
+                icon: null,
+            },
+            {
+                key: 'variable-animation',
+                parentKey: 'css-demo',
+                text: 'variable-animation',
+                link: 'variable-animation',
+                template: <CssVariableAnimation />,
+                icon: null,
+            },
+            {
+                key: 'bubble-loading',
+                parentKey: 'css-demo',
+                text: 'bubble-loading',
+                link: 'bubble-loading',
+                template: <BubbleLoading />,
                 icon: null,
             },
         ],

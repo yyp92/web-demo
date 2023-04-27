@@ -55,6 +55,22 @@ h1 {
   line-height: 1.1;
 }
 
+h3 {
+  box-sizing: border-box;
+  padding: 8px;
+  position: relative;
+}
+
+h3::before {
+  content: '';
+  width: 3px;
+  height: 24px;
+  background-color: var(--primary-color);
+  position: absolute;
+  left: 0;
+  top: 10px;
+}
+
 button {
   border-radius: 8px;
   border: 1px solid transparent;

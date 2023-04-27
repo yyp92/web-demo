@@ -10,6 +10,7 @@ const __dirname = dirname(__filename);
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
+  
   css: {
     postcss:{
       // 使用postcss-preset-env插件，这个插件支持css变量和一些未来css语法以及自动补全(autoprefixer)
