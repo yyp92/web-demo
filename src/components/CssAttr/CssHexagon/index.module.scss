@@ -1,0 +1,246 @@
+/*
+    drop-shadow: 下降阴影
+    clip-path: 使用裁剪方式创建元素的可显示区域。区域内的部分显示，区域外的隐藏。
+    polygon: 元素定义了一个由一组首尾相连的直线线段构成的闭合多边形形状。最后一点连接到第一点。
+*/
+
+@property --per {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 25%;
+}
+
+@property --per1 {
+    syntax: '<percentage> | <angle>';
+    inherits: false;
+    initial-value: 360deg;
+}
+
+.cssHexagon {
+    background-color: #fff;
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding: 6px;
+
+    h3 {
+        margin-top: 30px;
+
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+
+    .gContainer {
+        position: relative;
+        width: 300px;
+        height: 300px;
+    }
+
+    .gBg {
+        position: absolute;
+        inset: 0;
+        
+        &::after {
+            content: "";
+            position: absolute;
+            inset: 20px 0;
+            z-index: 6;
+            background: 
+                linear-gradient(transparent, transparent calc(50% - .5px), #333 calc(50% - .5px), #333 calc(50% + .5px), transparent calc(50% + .5px), transparent),
+                linear-gradient(120deg, transparent, transparent calc(50% - 1px), #333 calc(50% - .5px), #333 calc(50% + .5px), transparent calc(50% + 1px), transparent),
+                linear-gradient(240deg, transparent, transparent calc(50% - 1px), #333 calc(50% - .5px), #333 calc(50% + .5px), transparent calc(50% + 1px), transparent);
+            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+        }
+        
+        li {
+            position: absolute;
+            width: 150px;
+            height: 260px;
+            translate: -50% -50%;
+            left: 50%;
+            top: 50%;
+            background: #fff;
+            filter: 
+                drop-shadow(0 0 .5px #333)
+                drop-shadow(0 0 .5px #333)
+                drop-shadow(0 0 .5px #333);
+    
+            &::before,
+            &::after {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: inherit;
+            }
+
+            &::before {
+                transform: rotate(60deg);
+            }
+
+            &::after {
+                transform: rotate(-60deg);
+            }
+        }
+
+        @for $i from 1 to 5 {
+            li:nth-child(#{$i}) {
+                z-index: #{$i};
+                width:  #{(1 - $i / 5) * 150}px;
+                height: #{(1 - $i / 5) * 260}px;
+            }
+        }
+    }
+
+    .gContainer1 {
+        --polygon1: 30% 10%, 75% 1%, 94% 51%, 71% 94%, 44% 60%, 8% 50%;
+        background: linear-gradient(rgba(241,94,174, .8), rgba(255, 152, 0, .8));
+        clip-path: polygon(var(--polygon1));
+    }
+
+    .gContainer2 {
+        --polygon2: 25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%;
+        background: linear-gradient(rgba(241,94,174, .8), rgba(255, 152, 0, .8));
+        clip-path: polygon(var(--polygon2));
+    }
+
+    .gContainer3,
+    .gContainer4 {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+    }
+
+    .gContainer3 {
+        background: conic-gradient(yellowgreen, yellowgreen 25%, transparent 25%, transparent 100%); 
+        transition: background 300ms;
+        
+        &:hover {
+            background: conic-gradient(yellowgreen, yellowgreen 60%, transparent 60.1%, transparent 100%); 
+        }
+    }
+
+    .gContainer4 {
+        margin-top: 20px;
+        background: conic-gradient(yellowgreen, yellowgreen var(--per), transparent var(--per), transparent 100%); 
+        transition: --per 300ms linear;
+        
+        &:hover {
+            --per: 60%;
+        }
+    }
+
+    /*
+        我们用元素的 &::before 实现了我们上述说的六芒星样式图
+        利用元素本身的 mask 配合一个 CSS @Property 属性实现遮罩动画
+    */
+    .gContainer5,
+    .gContainer6 {
+        position: relative;
+        width: 300px;
+        height: 300px;
+        cursor: pointer;
+
+        .gBg {
+            position: absolute;
+            inset: 0;
+            
+            &::after {
+                content: "";
+                position: absolute;
+                inset: 20px 0;
+                z-index: 6;
+                background: 
+                    linear-gradient(transparent, transparent calc(50% - .5px), #333 calc(50% - .5px), #333 calc(50% + .5px), transparent calc(50% + .5px), transparent),
+                    linear-gradient(120deg, transparent, transparent calc(50% - 1px), #333 calc(50% - .5px), #333 calc(50% + .5px), transparent calc(50% + 1px), transparent),
+                    linear-gradient(240deg, transparent, transparent calc(50% - 1px), #333 calc(50% - .5px), #333 calc(50% + .5px), transparent calc(50% + 1px), transparent);
+                clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+        
+            }
+            
+            li {
+                position: absolute;
+                width: 150px;
+                height: 260px;
+                background: #fff;
+                filter: 
+                    drop-shadow(0 0 .5px #333)
+                    drop-shadow(0 0 .5px #333)
+                    drop-shadow(0 0 .5px #333);
+                translate: -50% -50%;
+                left: 50%;
+                top: 50%;
+        
+                &::before,
+                &::after {
+                    content: "";
+                    position: absolute;
+                    inset: 0;
+                    background: inherit;
+                }
+                &::before {
+                    transform: rotate(120deg);
+                }
+                &::after {
+                    transform: rotate(240deg);
+                }
+            }
+
+            @for $i from 1 to 5 {
+                li:nth-child(#{$i}) {
+                    z-index: #{$i};
+                    width:  #{(1 - $i / 5) * 150}px;
+                    height: #{(1 - $i / 5) * 260}px;
+                }
+            }
+        }
+
+        .gContent1 {
+            --polygon: 30% 10%, 75% 1%, 94% 51%, 71% 94%, 44% 60%, 8% 50%;
+            position: absolute;
+            inset: 20px 0;
+            z-index: 10;
+            mask: conic-gradient(#000, #000 var(--per1), transparent var(--per1), transparent 360deg); 
+        
+            &:hover {
+                animation: hoverPie 600ms ease-in-out;
+            }
+            
+            &::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(rgba(241,94,174, .8), rgba(255, 152, 0, .8));
+                clip-path: polygon(var(--polygon));
+            }
+        }
+
+        .gContent2 {
+            --polygon: 43% 36%, 69% 12%, 99% 50%, 71% 94%, 30% 90%, 5% 50%;
+            position: absolute;
+            inset: 20px 0;
+            z-index: 10;
+            mask: conic-gradient(#000, #000 var(--per1), transparent var(--per1), transparent 360deg); 
+        
+            &:hover {
+                animation: hoverPie 600ms ease-in-out;
+            }
+            
+            &::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(rgba(241,94,174, .8), rgba(255, 152, 0, .8));
+                clip-path: polygon(var(--polygon));
+            }
+        }
+        
+        @keyframes hoverPie {
+            0% {
+                --per1: 0deg;
+            }
+            100% {
+                --per1: 360deg;
+            }
+        }
+    }
+}

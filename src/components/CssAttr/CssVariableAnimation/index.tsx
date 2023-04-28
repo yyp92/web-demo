@@ -1,5 +1,10 @@
 import React from 'react'
 import s from './index.module.scss'
+import img1 from '@/assets/mask-1.jpg'
+import img2 from '@/assets/mask-2.jpg'
+import img3 from '@/assets/mask-3.png'
+import img4 from '@/assets/mask-4.png'
+import img5 from '@/assets/5.webp'
 
 export const CssVariableAnimation = () => {
   return (
@@ -16,7 +21,7 @@ export const CssVariableAnimation = () => {
       <h3>图片旋转配合容器旋转</h3>
       <div className={s.reverseRotateWrap1}>
         <div className={s.reverseRotate1}>
-            <img className={s.rotate1} src="https://picsum.photos/1000/1000?random=5" alt="" />
+            <img className={s.rotate1} src={img1} alt="" />
         </div>
       </div>
       
@@ -24,23 +29,23 @@ export const CssVariableAnimation = () => {
       <div className={s.gridBox}>
         <div className={s.container}>
           <div className={s.A}>
-              <img src="https://picsum.photos/1200/1200?random=1" alt="" />
+              <img src={img5} alt="" />
           </div>
 
           <div className={s.B}>
-              <img src="https://picsum.photos/1200/1200?random=2" alt="" />
+              <img src={img1} alt="" />
           </div>
 
           <div className={s.C}>
-              <img src="https://picsum.photos/1200/1200?random=3" alt="" />
+              <img src={img2} alt="" />
           </div>
 
           <div className={s.D}>
-              <img src="https://picsum.photos/1200/1200?random=4" alt="" />
+              <img src={img3} alt="" />
           </div>
 
           <div className={s.E}>
-              <img src="https://picsum.photos/1200/1200?random=5" alt="" />
+              <img src={img4} alt="" />
           </div>
         </div>
       </div>

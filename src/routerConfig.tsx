@@ -17,6 +17,7 @@ import {
     CssVariableAnimation,
     BubbleLoading,
     ImgGraduallyDisappear,
+    CssHexagon,
 } from './components/CssAttr'
 
 export interface RouterConfigItem {
@@ -102,7 +103,7 @@ export const routerConfig: RouterConfigItem[] = [
             {
                 key: 'variable-animation',
                 parentKey: 'css-demo',
-                text: 'variable-animation',
+                text: '网格动画',
                 link: 'variable-animation',
                 template: <CssVariableAnimation />,
                 icon: null,
@@ -110,7 +111,7 @@ export const routerConfig: RouterConfigItem[] = [
             {
                 key: 'bubble-loading',
                 parentKey: 'css-demo',
-                text: 'bubble-loading',
+                text: '气泡 Loading',
                 link: 'bubble-loading',
                 template: <BubbleLoading />,
                 icon: null,
@@ -118,9 +119,17 @@ export const routerConfig: RouterConfigItem[] = [
             {
                 key: 'img-gradually-disappear',
                 parentKey: 'css-demo',
-                text: 'imgGraduallyDisappear',
+                text: '图片渐隐消失术',
                 link: 'img-gradually-disappear',
                 template: <ImgGraduallyDisappear />,
+                icon: null,
+            },
+            {
+                key: 'css-hexagon',
+                parentKey: 'css-demo',
+                text: '六芒星能力图',
+                link: 'css-hexagon',
+                template: <CssHexagon />,
                 icon: null,
             },
         ],
