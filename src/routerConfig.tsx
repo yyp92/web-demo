@@ -16,6 +16,7 @@ import {
     CssMask,
     CssVariableAnimation,
     BubbleLoading,
+    ImgGraduallyDisappear,
 } from './components/CssAttr'
 
 export interface RouterConfigItem {
@@ -112,6 +113,14 @@ export const routerConfig: RouterConfigItem[] = [
                 text: 'bubble-loading',
                 link: 'bubble-loading',
                 template: <BubbleLoading />,
+                icon: null,
+            },
+            {
+                key: 'img-gradually-disappear',
+                parentKey: 'css-demo',
+                text: 'imgGraduallyDisappear',
+                link: 'img-gradually-disappear',
+                template: <ImgGraduallyDisappear />,
                 icon: null,
             },
         ],
