@@ -18,6 +18,7 @@ import {
     BubbleLoading,
     ImgGraduallyDisappear,
     CssHexagon,
+    ConicGradient,
 } from './components/CssAttr'
 
 export interface RouterConfigItem {
@@ -130,6 +131,14 @@ export const routerConfig: RouterConfigItem[] = [
                 text: '六芒星能力图',
                 link: 'css-hexagon',
                 template: <CssHexagon />,
+                icon: null,
+            },
+            {
+                key: 'conic-gradient',
+                parentKey: 'css-demo',
+                text: '角向渐变',
+                link: 'conic-gradient',
+                template: <ConicGradient />,
                 icon: null,
             },
         ],

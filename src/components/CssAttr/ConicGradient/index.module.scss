@@ -1,0 +1,101 @@
+.ConicGradient {
+    .content1,
+    .content2,
+    .content3,
+    .content4,
+    .content5,
+    .content6,
+    .content7,
+    .content8 {
+        margin-bottom: 30px;
+    }
+
+    .content1 {
+        width: 500px;
+        height: 500px;
+        background: 
+            repeating-linear-gradient(90deg,#aec8ee 0, #aec8ee 1px, transparent 1px, transparent 100px),
+            repeating-linear-gradient(#aec8ee 0, #aec8ee 1px, transparent 1px, transparent 100px),
+            #0e284d;
+    }
+
+    .content2 {
+        width: 200px;
+        height: 200px;
+        background: conic-gradient(deeppink, yellowgreen);
+    }
+
+    .content3 {
+        width: 200px;
+        height: 200px;
+        background: conic-gradient(from 270deg at 50px 50px, deeppink, yellowgreen);
+    }
+
+    .content4 {
+        width: 200px;
+        height: 200px;
+        background: conic-gradient(from 270deg at 50px 50px, deeppink 0%, deeppink 90deg, transparent 90deg, transparent 
+     360deg);
+        border: 1px solid #000;
+    }
+
+    .content5 {
+        width: 200px;
+        height: 200px;
+        background: conic-gradient(from 270deg at 50px 50px, deeppink 0%, deeppink 90deg, transparent 90deg, transparent 
+     360deg);
+        background-position: -25px -25px;
+        border: 1px solid #000;
+    }
+
+    .content6 {
+        width: 200px;
+        height: 200px;
+        background: conic-gradient(from 270deg at 50px 50px, deeppink 0%, deeppink 90deg, transparent 90deg, transparent 
+    360deg);
+        background-position: -25px -25px;
+        background-repeat: no-repeat;
+        border: 1px solid #000;
+    }
+
+    .content7 {
+        width: 500px;
+        height: 500px;
+        background: 
+            conic-gradient(from 270deg at 5px 20px, #31c2ec 90deg, transparent 0deg),
+            repeating-linear-gradient(90deg,#aec8ee 0, #aec8ee 1px, transparent 1px, transparent 100px),
+            repeating-linear-gradient(#aec8ee 0, #aec8ee 1px, transparent 1px, transparent 100px),
+            #0e284d;
+        background-repeat: repeat, no-repeat, no-repeat;
+        background-size: 
+            100px 100px,
+            100% 100%,
+            100% 100%;
+        background-position: 
+            -2.5px -10px,
+            0 0,
+            0 0;
+    }
+
+    .content8 {
+        width: 500px;
+        height: 500px;
+        background: 
+            conic-gradient(from 270deg at 20px 5px, #31c2ec 90deg, transparent 0deg),
+            conic-gradient(from 270deg at 5px 20px, #31c2ec 90deg, transparent 0deg),
+            repeating-linear-gradient(90deg,#aec8ee 0, #aec8ee 1px, transparent 1px, transparent 100px),
+            repeating-linear-gradient(#aec8ee 0, #aec8ee 1px, transparent 1px, transparent 100px),
+            #0e284d;
+        background-repeat: repeat, repeat, no-repeat, no-repeat;
+        background-size: 
+            100px 100px,
+            100px 100px,
+            100% 100%,
+            100% 100%;
+        background-position: 
+            -10px -2.5px,
+            -2.5px -10px,
+            0 0,
+            0 0;
+    }
+}
