@@ -1,0 +1,35 @@
+// https://juejin.cn/post/7082775695121711111
+
+/*
+容器查询带来了很多新的单位，其中有：
+    cqw 容器查询宽度（Container Query Width）占比。1cqw 等于容器宽度的 1%。假设容器宽度是 1000px，则此时 1cqw 对应的计算值就是 10px。
+    cqh 容器查询高度（Container Query Height）占比。1cqh 等于容器高度的 1%。
+    cqi 表示容器查询内联方向尺寸（Container Query Inline-Size）占比。这个是逻辑属性单位，默认情况下等同于 cqw
+    cqb 容器查询块级方向尺寸（Container Query Block-Size）占比。同上，默认情况下等同于 cqh
+    cqmin 容器查询较小尺寸的（Container Query Min）占比。取 cqw 和 cqh 中较小的一个
+    cqmax 表示容器查询较大尺寸的（Container Query Min）占比。取 cqw 和 cqh 中较大的一个
+*/
+
+.textOverflowMarquee {
+    .marquee {
+        display: flex;
+        position: relative;
+        overflow: hidden;
+        white-space: nowrap;
+        width: 200px;
+        padding: 2px 4px;
+        background-color: salmon;
+        resize: horizontal;
+        container-type: inline-size;
+        
+        & > * {
+            animation: marquee 3s linear infinite both alternate;
+        }
+    }
+    
+    @keyframes marquee {
+        to {
+            transform: translateX(min(100cqw - 100%, 0px));
+        }
+    } 
+}

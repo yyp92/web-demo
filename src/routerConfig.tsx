@@ -19,6 +19,7 @@ import {
     ImgGraduallyDisappear,
     CssHexagon,
     ConicGradient,
+    TextOverflowMarquee,
 } from './components/CssAttr'
 
 export interface RouterConfigItem {
@@ -139,6 +140,14 @@ export const routerConfig: RouterConfigItem[] = [
                 text: '角向渐变',
                 link: 'conic-gradient',
                 template: <ConicGradient />,
+                icon: null,
+            },
+            {
+                key: 'text-overflow-marquee',
+                parentKey: 'css-demo',
+                text: '不定宽文本溢出跑马灯',
+                link: 'text-overflow-marquee',
+                template: <TextOverflowMarquee />,
                 icon: null,
             },
         ],
