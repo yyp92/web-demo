@@ -20,6 +20,7 @@ import {
     CssHexagon,
     ConicGradient,
     TextOverflowMarquee,
+    MagicalCssEffects,
 } from './components/CssAttr'
 
 export interface RouterConfigItem {
@@ -148,6 +149,14 @@ export const routerConfig: RouterConfigItem[] = [
                 text: '不定宽文本溢出跑马灯',
                 link: 'text-overflow-marquee',
                 template: <TextOverflowMarquee />,
+                icon: null,
+            },
+            {
+                key: 'magical-css-effects',
+                parentKey: 'css-demo',
+                text: 'magical-css-effects',
+                link: 'magical-css-effects',
+                template: <MagicalCssEffects />,
                 icon: null,
             },
         ],
