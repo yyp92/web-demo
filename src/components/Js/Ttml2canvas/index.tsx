@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import reactLogo from '../../assets/react.svg'
+import reactLogo from '@/assets/react.svg'
 import generateShareImage from './generateShareImage'
 
-function Ttml2canvas() {
+export function Ttml2canvas() {
   const hanldeCreateImg = () => {
     generateShareImage('recoil-wrap', 'preview')
   }
@@ -50,5 +50,3 @@ function Ttml2canvas() {
     </React.Fragment>
   )
 }
-
-export default Ttml2canvas

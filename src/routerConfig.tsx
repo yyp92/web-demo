@@ -1,5 +1,8 @@
 import React from 'react';
-import Ttml2canvas from './components/Ttml2canvas'
+import {
+    Ttml2canvas,
+    LocalForage
+} from './components/Js'
 import {
     ChartEvenDistribution,
     ChartGaussianDistribution,
@@ -53,14 +56,14 @@ export const routerConfig: RouterConfigItem[] = [
                 template: <Ttml2canvas />,
                 icon: null,
             },
-            // {
-            //     key: 'home2',
-            //     parentKey: 'home',
-            //     text: 'Home2',
-            //     link: 'home2',
-            //     template: <>Home2</>,
-            //     icon: null,
-            // }
+            {
+                key: 'LocalForage',
+                parentKey: 'js-demo',
+                text: 'LocalForage',
+                link: 'local-forage',
+                template: <LocalForage />,
+                icon: null,
+            }
         ],
     },
     {
