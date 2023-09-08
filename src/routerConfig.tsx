@@ -1,7 +1,8 @@
 import React from 'react';
 import {
     Ttml2canvas,
-    LocalForage
+    LocalForage,
+    DndKit
 } from './components/Js'
 import {
     ChartEvenDistribution,
@@ -62,6 +63,14 @@ export const routerConfig: RouterConfigItem[] = [
                 text: 'LocalForage',
                 link: 'local-forage',
                 template: <LocalForage />,
+                icon: null,
+            },
+            {
+                key: 'DndKit',
+                parentKey: 'js-demo',
+                text: 'DndKit',
+                link: 'react-dnd-kit',
+                template: <DndKit />,
                 icon: null,
             }
         ],
