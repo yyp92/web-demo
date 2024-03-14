@@ -32,7 +32,7 @@
 */
 $count: 400;
 $sqrt: 20;
-$per: 100% / $sqrt;
+$per: calc(100% / $sqrt);
 $perWid: 30;
 $perHeight: 20;
 
@@ -76,7 +76,7 @@ $perHeight: 20;
     $transition: --m-1 0.1s 0.1s;
 
     @for $i from 1 through $n {   
-        $transition: $transition, --m-#{$i} #{100 + random(500)}ms #{($i / 50) * random(100)}ms;
+        $transition: $transition, --m-#{$i} #{100 + random(500)}ms #{calc($i / 50) * random(100)}ms;
     }
     
     @return $transition;

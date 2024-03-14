@@ -85,8 +85,8 @@
         @for $i from 1 to 5 {
             li:nth-child(#{$i}) {
                 z-index: #{$i};
-                width:  #{(1 - $i / 5) * 150}px;
-                height: #{(1 - $i / 5) * 260}px;
+                width:  #{(1 - calc($i / 5)) * 150}px;
+                height: #{(1 - calc($i / 5)) * 260}px;
             }
         }
     }
@@ -188,8 +188,8 @@
             @for $i from 1 to 5 {
                 li:nth-child(#{$i}) {
                     z-index: #{$i};
-                    width:  #{(1 - $i / 5) * 150}px;
-                    height: #{(1 - $i / 5) * 260}px;
+                    width:  #{(1 - calc($i / 5)) * 150}px;
+                    height: #{(1 - calc($i / 5)) * 260}px;
                 }
             }
         }

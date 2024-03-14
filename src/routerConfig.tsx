@@ -2,7 +2,8 @@ import React from 'react';
 import {
     Ttml2canvas,
     LocalForage,
-    DndKit
+    DndKit,
+    WebSharedWorker
 } from './components/Js'
 import {
     ChartEvenDistribution,
@@ -72,7 +73,15 @@ export const routerConfig: RouterConfigItem[] = [
                 link: 'react-dnd-kit',
                 template: <DndKit />,
                 icon: null,
-            }
+            },
+            {
+                key: 'WebSharedWorker',
+                parentKey: 'js-demo',
+                text: 'WebSharedWorker',
+                link: 'web-shared-worker',
+                template: <WebSharedWorker />,
+                icon: null,
+            },
         ],
     },
     {

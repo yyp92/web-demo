@@ -3,3 +3,4 @@
 export * from './LocalStorge'
 export * from './Ttml2canvas'
 export * from './DndKit'
+export * from './WebSharedWorker'

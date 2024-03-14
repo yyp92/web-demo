@@ -9,6 +9,7 @@ specifiers:
   '@types/d3-random': ^3.0.1
   '@types/react': ^18.0.27
   '@types/react-dom': ^18.0.10
+  '@types/sharedworker': ^0.0.113
   '@vitejs/plugin-react': ^3.1.0
   antd: ^5.8.6
   classnames: ^2.3.2
@@ -47,6 +48,7 @@ devDependencies:
   '@types/d3-random': 3.0.1
   '@types/react': 18.0.27
   '@types/react-dom': 18.0.10
+  '@types/sharedworker': 0.0.113
   '@vitejs/plugin-react': 3.1.0_vite@4.1.1
   classnames: 2.3.2
   path: 0.12.7
@@ -1320,6 +1322,10 @@ packages:
 
   /@types/scheduler/0.16.2:
     resolution: {integrity: sha512-hppQEBDmlwhFAXKJX2KnWLYu5yMfi91yazPb2l+lbJiwW+wdo1gNeRA+3RgNSO39WYX2euey41KEwnqesU2Jew==}
+    dev: true
+
+  /@types/sharedworker/0.0.113:
+    resolution: {integrity: sha512-QqOqG/5Kqu0x757XgYr7MsMEaV1WM0z1lPq/jZHFZNzu8RA+wmIsc6vYN2LN4l74InAkY304nqvXbjW1ESpU8g==}
     dev: true
 
   /@vitejs/plugin-react/3.1.0_vite@4.1.1:

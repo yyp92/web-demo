@@ -81,7 +81,7 @@ $count: 200;
                 transform: translate(-50%, -50%);
                 width: var(--width);
                 height: var(--width);
-                animation: move #{(random(1500) + 1500) / 1000}s ease-in-out -#{random(3000) / 1000}s infinite;
+                animation: move #{calc((random(1500) + 1500) / 1000)}s ease-in-out -#{calc(random(3000) / 1000)}s infinite;
             }
         }
 
@@ -184,10 +184,10 @@ $count: 200;
         @for $i from 1 through $count { 
             
             .gBubble:nth-child(#{$i}) {
-                --rotate: calc(#{360 / $count} * #{$i} * 1deg);
-                --delayTime: calc(4000 * #{$i / $count} * #{-1ms});
+                --rotate: calc(#{calc(360 / $count)} * #{$i} * 1deg);
+                --delayTime: calc(4000 * #{calc($i / $count)} * #{-1ms});
                 --width: 30px;
-                --scale: #{0.4 + random(10) / 10};
+                --scale: #{0.4 + calc(random(10) / 10)};
                 --x: #{-100 + random(200)}px;
                 --y: #{-100 + random(200)}px;
                 width: var(--width);
