@@ -26,71 +26,70 @@ export const WebSharedWorker = () => {
 
     useEffect(() => {
         const canvas = canvasRef.current;
-        const sharedWorker = new SharedWorker(new URL("worker.ts", import.meta.url));
-
+       
         if (canvas) {
             const ctx = canvas.getContext('2d');
 
             if (ctx) {
-                
-                // const sharedWorker = new SharedWorker("./worker.js");
-                let currentWindow = getCurrentWindowState();
+                // const sharedWorker = new SharedWorker(new URL("worker.ts", import.meta.url));
+                // let currentWindow = getCurrentWindowState();
     
-                sharedWorker.port.postMessage({
-                    action: "windowStateChanged",
-                    payload: {
-                        id,
-                        newWindow: currentWindow,
-                    },
-                });
+                // sharedWorker.port.postMessage({
+                //     action: "windowStateChanged",
+                //     payload: {
+                //         id,
+                //         newWindow: currentWindow,
+                //     },
+                // });
 
-                sharedWorker.port.onmessage = (event: MessageEvent<WorkerMessage>) => {
-                    const msg: any = event.data;
-                    console.log('====msg', msg)
+                // sharedWorker.port.onmessage = (event: MessageEvent<WorkerMessage>) => {
+                //     const msg: any = event.data;
+                //     console.log('====msg', msg)
     
-                    switch (msg.action) {
-                        case "sync": {
-                            const windows = msg.payload.allWindows;
+                //     switch (msg.action) {
+                //         case "sync": {
+                //             const windows = msg.payload.allWindows;
                             
-                            ctx.reset();
+                //             ctx.reset();
     
-                            drawCenterCircle(ctx, getWindowCenter());
+                //             drawCenterCircle(ctx, getWindowCenter());
 
                             
-                            console.log('====windows', windows)
+                //             console.log('====windows', windows)
     
-                            windows.forEach(({ windowState: targetWindow }: any) => {
-                                // console.log('====targetWindow', targetWindow)
-                                drawConnectingLine({
-                                    ctx,
-                                    hostWindow: currentWindow?.windowState,
-                                    targetWindow,
-                                });
-                            });
-                        }
-                    }
-                };
+                //             windows.forEach(({ windowState: targetWindow }: any) => {
+                //                 // console.log('====targetWindow', targetWindow)
+                //                 drawConnectingLine({
+                //                     ctx,
+                //                     hostWindow: currentWindow?.windowState,
+                //                     targetWindow,
+                //                 });
+                //             });
+                //         }
+                //     }
+                // };
     
-                setInterval(() => {
-                    const newWindow = getCurrentWindowState();
+                // todo 暂时注释，需要的时候打开
+                // setInterval(() => {
+                //     const newWindow = getCurrentWindowState();
     
-                    if (
-                        didWindowChange({
-                            newWindow,
-                            oldWindow: currentWindow,
-                        })
-                    ) {
-                        sharedWorker.port.postMessage({
-                            action: "windowStateChanged",
-                            payload: {
-                                id,
-                                newWindow: newWindow.windowState,
-                            },
-                        });
+                //     if (
+                //         didWindowChange({
+                //             newWindow,
+                //             oldWindow: currentWindow,
+                //         })
+                //     ) {
+                //         sharedWorker.port.postMessage({
+                //             action: "windowStateChanged",
+                //             payload: {
+                //                 id,
+                //                 newWindow: newWindow.windowState,
+                //             },
+                //         });
 
-                        currentWindow = newWindow;
-                    }
-                  }, 100);
+                //         currentWindow = newWindow;
+                //     }
+                //   }, 100);
             }
         }
     }, [canvasRef.current])

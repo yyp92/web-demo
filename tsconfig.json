@@ -12,7 +12,10 @@
     "module": "ESNext",
     "moduleResolution": "Node",
     "resolveJsonModule": true,
+    
+    // * 如果测试WebWorker就把这个isolatedModules设置为false
     "isolatedModules": true,
+
     "noEmit": true,
     "jsx": "react-jsx",
     "baseUrl": "./",

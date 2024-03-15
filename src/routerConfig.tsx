@@ -3,7 +3,10 @@ import {
     Ttml2canvas,
     LocalForage,
     DndKit,
-    WebSharedWorker
+    WebSharedWorker,
+    WebWorker,
+    WebWorkerTableExport,
+    WebWorkerImagesCompress
 } from './components/Js'
 import {
     ChartEvenDistribution,
@@ -80,6 +83,30 @@ export const routerConfig: RouterConfigItem[] = [
                 text: 'WebSharedWorker',
                 link: 'web-shared-worker',
                 template: <WebSharedWorker />,
+                icon: null,
+            },
+            {
+                key: 'WebWorker',
+                parentKey: 'js-demo',
+                text: 'WebWorker',
+                link: 'web-worker',
+                template: <WebWorker />,
+                icon: null,
+            },
+            {
+                key: 'WebWorkerTableExport',
+                parentKey: 'js-demo',
+                text: 'WebWorkerTableExport',
+                link: 'web-worker-table-export',
+                template: <WebWorkerTableExport />,
+                icon: null,
+            },
+            {
+                key: 'WebWorkerImagesCompress',
+                parentKey: 'js-demo',
+                text: 'WebWorkerImagesCompress',
+                link: 'web-worker-images-compress',
+                template: <WebWorkerImagesCompress />,
                 icon: null,
             },
         ],
