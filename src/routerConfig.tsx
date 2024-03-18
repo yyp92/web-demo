@@ -6,7 +6,8 @@ import {
     WebSharedWorker,
     WebWorker,
     WebWorkerTableExport,
-    WebWorkerImagesCompress
+    WebWorkerImagesCompress,
+    WebSocketCom
 } from './components/Js'
 import {
     ChartEvenDistribution,
@@ -107,6 +108,14 @@ export const routerConfig: RouterConfigItem[] = [
                 text: 'WebWorkerImagesCompress',
                 link: 'web-worker-images-compress',
                 template: <WebWorkerImagesCompress />,
+                icon: null,
+            },
+            {
+                key: 'WebSocket',
+                parentKey: 'js-demo',
+                text: 'WebSocket',
+                link: 'web-socket',
+                template: <WebSocketCom />,
                 icon: null,
             },
         ],

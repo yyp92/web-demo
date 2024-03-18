@@ -26,4 +26,9 @@ export default defineConfig({
       // '@components': resolve(__dirname, 'src/components'),
     },
   },
+
+  // 其他配置项...
+  optimizeDeps: {
+    include: ['ws']
+  }
 })
