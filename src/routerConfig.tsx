@@ -7,7 +7,8 @@ import {
     WebWorker,
     WebWorkerTableExport,
     WebWorkerImagesCompress,
-    WebSocketCom
+    WebSocketCom,
+    SocketIO
 } from './components/Js'
 import {
     ChartEvenDistribution,
@@ -116,6 +117,14 @@ export const routerConfig: RouterConfigItem[] = [
                 text: 'WebSocket',
                 link: 'web-socket',
                 template: <WebSocketCom />,
+                icon: null,
+            },
+            {
+                key: 'SocketIO',
+                parentKey: 'js-demo',
+                text: 'SocketIO',
+                link: 'socket-io',
+                template: <SocketIO />,
                 icon: null,
             },
         ],

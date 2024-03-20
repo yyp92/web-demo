@@ -9,7 +9,9 @@ const __dirname = dirname(__filename);
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+  ],
   
   css: {
     postcss:{
@@ -22,13 +24,20 @@ export default defineConfig({
     alias: {
       // @ 替代为 src
       '@': resolve(__dirname, 'src'),
-       // @component 替代为 src/component
-      // '@components': resolve(__dirname, 'src/components'),
+      // @component 替代为 src/component
+      '@components': resolve(__dirname, 'src/components'),
+      '@utils': resolve(__dirname, 'src/utils'),
     },
   },
 
   // 其他配置项...
   optimizeDeps: {
     include: ['ws']
+  },
+
+  server: {
+    proxy: {
+      '/socket.io': 'http://localhost:5000'
+    }
   }
 })
