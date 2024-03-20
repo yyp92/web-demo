@@ -1,3 +1,7 @@
+/**
+ * ! 需要启动对应的 nodejs 服务，nodejs-basic中 socket/socket.io/ChatSocket.js
+ */
+
 import {io} from 'socket.io-client'
 import {message} from 'antd'
 
@@ -6,7 +10,7 @@ const SOCKET_ROOT = process.env.NODE_ENV === 'development'
     : 'http://localhost:5000/'
 
 export const socket = io(`${SOCKET_ROOT}`)
-// export const socketUser = io(`${SOCKET_ROOT}/js-demo/socket-io`, {
+// export const socketUser = io(`${SOCKET_ROOT}/${namespace}`, {
 //     auth: {
 //         token: 'fake token'
 //     }
@@ -23,7 +27,6 @@ export const setCallBackHandle = (
     fnName: any,
     handler: (msg: string) => void
 ) => {
-    console.log('======handlerSet', )
     handlerSet[fnName] = handler
 }
 
