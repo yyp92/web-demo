@@ -33,6 +33,12 @@ import {
     MagicalCssEffects,
 } from './components/CssAttr'
 
+import {
+    Debugger,
+    MiniCalendarTest,
+    CalendarTest
+} from './components/MyReact'
+
 export interface RouterConfigItem {
     key: string;
     parentKey?: string
@@ -129,6 +135,7 @@ export const routerConfig: RouterConfigItem[] = [
             },
         ],
     },
+
     {
         key: 'css-demo',
         text: 'css-demo',
@@ -227,6 +234,7 @@ export const routerConfig: RouterConfigItem[] = [
             },
         ],
     },
+
     {
         key: 'antv',
         text: 'antv',
@@ -292,6 +300,40 @@ export const routerConfig: RouterConfigItem[] = [
                 icon: null,
             },
         ],
+    },
+
+    {
+        key: 'my-react',
+        text: 'my-react',
+        link: '/my-react',
+        icon: null,
+        children: [
+            {
+                key: 'react-debugger',
+                parentKey: 'my-react',
+                index: true,
+                text: 'react-debugger',
+                link: '/',
+                template: <Debugger />,
+                icon: null,
+            },
+            {
+                key: 'mini-calendar',
+                parentKey: 'my-react',
+                text: 'MiniCalendar',
+                link: 'mini-calendar',
+                template: <MiniCalendarTest />,
+                icon: null,
+            },
+            {
+                key: 'calendar-test',
+                parentKey: 'my-react',
+                text: 'CalendarTest',
+                link: 'calendar-test',
+                template: <CalendarTest />,
+                icon: null,
+            },
+        ]
     },
 
     // 使用 path="*"" 意味着 "匹配所有路径", 所以我们不需要明确地列出别的路径了。

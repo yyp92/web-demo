@@ -17,6 +17,7 @@
     "antd": "^5.8.6",
     "d3-array": "^3.2.3",
     "d3-random": "^3.0.1",
+    "dayjs": "^1.11.10",
     "exceljs": "^4.4.0",
     "file-saver": "^2.0.5",
     "html2canvas": "^1.4.1",
