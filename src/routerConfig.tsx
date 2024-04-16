@@ -36,7 +36,8 @@ import {
 import {
     Debugger,
     MiniCalendarTest,
-    CalendarTest
+    CalendarTest,
+    IconTest
 } from './components/MyReact'
 
 export interface RouterConfigItem {
@@ -331,6 +332,14 @@ export const routerConfig: RouterConfigItem[] = [
                 text: 'CalendarTest',
                 link: 'calendar-test',
                 template: <CalendarTest />,
+                icon: null,
+            },
+            {
+                key: 'icon-test',
+                parentKey: 'my-react',
+                text: 'IconTest',
+                link: 'icon-test',
+                template: <IconTest />,
                 icon: null,
             },
         ]

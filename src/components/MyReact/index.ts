@@ -3,3 +3,4 @@
 export * from './Debugger'
 export * from './MiniCalendar'
 export * from './CalendarTest'
+export * from './IconTest'
