@@ -153,7 +153,10 @@ const LayoutPage = () => {
                 {renderNav(routerConfig)}
             </nav>
 
-            <div className={s.content}>
+            <div
+                id="content"
+                className={s.content}
+            >
                 {/* <Outlet> 绘制当前（被选中的）激活的子路由组件，你可以理解为是我们事先定义的子路由组件的占位符 */}
                 <Outlet />
             </div>

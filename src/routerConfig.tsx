@@ -35,10 +35,14 @@ import {
 
 import {
     Debugger,
+    ReactChildren,
     MiniCalendarTest,
     CalendarTest,
     IconTest,
-    SpaceTest
+    SpaceTest,
+    PortalTest,
+    MutateObserverTest,
+    CopyToClipboardTest
 } from './components/MyReact'
 
 export interface RouterConfigItem {
@@ -317,6 +321,38 @@ export const routerConfig: RouterConfigItem[] = [
                 text: 'react-debugger',
                 link: '/',
                 template: <Debugger />,
+                icon: null,
+            },
+            {
+                key: 'react-children',
+                parentKey: 'my-react',
+                text: 'ReactChildren',
+                link: 'react-children',
+                template: <ReactChildren />,
+                icon: null,
+            },
+            {
+                key: 'portal-test',
+                parentKey: 'my-react',
+                text: 'PortalTest',
+                link: 'portal-test',
+                template: <PortalTest />,
+                icon: null,
+            },
+            {
+                key: 'mutate-observer-test',
+                parentKey: 'my-react',
+                text: 'MutateObserverTest',
+                link: 'mutate-observer-test',
+                template: <MutateObserverTest />,
+                icon: null,
+            },
+            {
+                key: 'copy-to-clipboard-test',
+                parentKey: 'my-react',
+                text: 'CopyToClipboardTest',
+                link: 'copy-to-clipboard-test',
+                template: <CopyToClipboardTest />,
                 icon: null,
             },
             {
