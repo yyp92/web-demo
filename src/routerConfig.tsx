@@ -42,7 +42,8 @@ import {
     SpaceTest,
     PortalTest,
     MutateObserverTest,
-    CopyToClipboardTest
+    CopyToClipboardTest,
+    ObserverTest
 } from './components/MyReact'
 
 export interface RouterConfigItem {
@@ -385,6 +386,14 @@ export const routerConfig: RouterConfigItem[] = [
                 text: 'SpaceTest',
                 link: 'space-test',
                 template: <SpaceTest />,
+                icon: null,
+            },
+            {
+                key: 'observer-test',
+                parentKey: 'my-react',
+                text: 'ObserverTest',
+                link: 'observer-test',
+                template: <ObserverTest />,
                 icon: null,
             },
         ]

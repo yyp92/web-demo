@@ -26,7 +26,7 @@ import s from './index.module.scss'
 const routeList: any = []
 
 // 全局context, 创建context
-const LoyoutContext = React.createContext<any>({})
+const LayoutContext = React.createContext<any>({})
 // 一级菜单的第一个的key
 let firstKey = ''
 
@@ -39,7 +39,7 @@ const renderNavItem = (
     index: number = 0,
     item?: RouterConfigItem
 ) => {
-    const {initPathname = ''} = React.useContext(LoyoutContext)
+    const {initPathname = ''} = React.useContext(LayoutContext)
     const path = item?.link
 
     // 匹配以 ** 结尾
@@ -126,7 +126,7 @@ const renderNavItem = (
 
 // layout
 const renderNav = (list: RouterConfigItem[]) => {
-    const {initPathname = ''} = React.useContext(LoyoutContext)
+    const {initPathname = ''} = React.useContext(LayoutContext)
     const navigate = useNavigate()
     const [active, setActive] = React.useState<string>('home')
 
@@ -244,7 +244,7 @@ const Layout = () => {
 
     return (
         <React.Fragment>
-            <LoyoutContext.Provider value={defaultContext}>
+            <LayoutContext.Provider value={defaultContext}>
                 <Routes>
                     {/* {renderRouterItem(routerConfig)} */}
                     <Route path="/" element={<LayoutPage />}>
@@ -254,7 +254,7 @@ const Layout = () => {
                     {/* {render1()} */}
                 </Routes>
                 {/* {element} */}
-            </LoyoutContext.Provider>
+            </LayoutContext.Provider>
         </React.Fragment>
     )        
 }
