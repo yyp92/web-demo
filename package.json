@@ -14,6 +14,7 @@
     "@dnd-kit/core": "^6.0.8",
     "@dnd-kit/sortable": "^7.0.2",
     "@dnd-kit/utilities": "^3.2.1",
+    "@react-spring/web": "^9.7.3",
     "antd": "^5.8.6",
     "copy-to-clipboard": "^3.3.3",
     "d3-array": "^3.2.3",

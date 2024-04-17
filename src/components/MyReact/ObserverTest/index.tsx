@@ -103,24 +103,24 @@ export const ObserverTest = () => {
      * * PerformanceObserver
      * 用于监听记录 performance 数据的行为，一旦记录了就会触发回调，这样我们就可以在回调里把这些数据上报
      */
-    useEffect(() => {
-        const performanceObserver = new PerformanceObserver(list => {
-            list.getEntries().forEach(entry => {
-                // 上报
-                console.log(entry);
-            })
-        })
+    // useEffect(() => {
+    //     const performanceObserver = new PerformanceObserver(list => {
+    //         list.getEntries().forEach(entry => {
+    //             // 上报
+    //             console.log(entry);
+    //         })
+    //     })
     
-        // 创建 PerformanceObserver 对象，监听 mark（时间点）、measure（时间段）、resource（资源加载耗时） 这三种记录时间的行为。
-        performanceObserver.observe({
-            entryTypes: ['resource', 'mark', 'measure']
-        })
+    //     // 创建 PerformanceObserver 对象，监听 mark（时间点）、measure（时间段）、resource（资源加载耗时） 这三种记录时间的行为。
+    //     performanceObserver.observe({
+    //         entryTypes: ['resource', 'mark', 'measure']
+    //     })
     
-        performance.mark('registered-observer')
-    }, [])
+    //     performance.mark('registered-observer')
+    // }, [])
 
     const measureClick = () => {
-        performance.measure('button clicked')
+        // performance.measure('button clicked')
     }
 
     return (

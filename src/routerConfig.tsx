@@ -43,7 +43,8 @@ import {
     PortalTest,
     MutateObserverTest,
     CopyToClipboardTest,
-    ObserverTest
+    ObserverTest,
+    ReactSpringTest
 } from './components/MyReact'
 
 export interface RouterConfigItem {
@@ -394,6 +395,14 @@ export const routerConfig: RouterConfigItem[] = [
                 text: 'ObserverTest',
                 link: 'observer-test',
                 template: <ObserverTest />,
+                icon: null,
+            },
+            {
+                key: 'react-spring-test',
+                parentKey: 'my-react',
+                text: 'ReactSpringTest',
+                link: 'react-spring-test',
+                template: <ReactSpringTest />,
                 icon: null,
             },
         ]
