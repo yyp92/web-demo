@@ -22,6 +22,8 @@ specifiers:
   exceljs: ^4.4.0
   file-saver: ^2.0.5
   html2canvas: ^1.4.1
+  immer: ^10.0.4
+  immutable: 5.0.0-beta.5
   localforage: ^1.10.0
   path: ^0.12.7
   postcss-preset-env: ^8.3.2
@@ -50,6 +52,8 @@ dependencies:
   exceljs: 4.4.0
   file-saver: 2.0.5
   html2canvas: 1.4.1
+  immer: 10.0.4
+  immutable: 5.0.0-beta.5
   localforage: 1.10.0
   react: 18.2.0
   react-copy-to-clipboard: 5.1.0_react@18.2.0
@@ -2345,9 +2349,17 @@ packages:
     resolution: {integrity: sha512-XXOFtyqDjNDAQxVfYxuF7g9Il/IbWmmlQg2MYKOH8ExIT1qg6xc4zyS3HaEEATgs1btfzxq15ciUiY7gjSXRGQ==}
     dev: false
 
+  /immer/10.0.4:
+    resolution: {integrity: sha512-cuBuGK40P/sk5IzWa9QPUaAdvPHjkk1c+xYsd9oZw+YQQEV+10G0P5uMpGctZZKnyQ+ibRO08bD25nWLmYi2pw==}
+    dev: false
+
   /immutable/4.3.5:
     resolution: {integrity: sha512-8eabxkth9gZatlwl5TBuJnCsoTADlL6ftEr7A4qgdaTsPyreilDSnUk57SO+jfKcNtxPa22U5KK6DSeAYhpBJw==}
     dev: true
+
+  /immutable/5.0.0-beta.5:
+    resolution: {integrity: sha512-1RO6wxfJdh/uyWb2MTn3RuCPXYmpRiAhoKm8vEnA50+2Gy0j++6GBtu5q6sq2d4tpcL+e1sCHzk8NkWnRhT2/Q==}
+    dev: false
 
   /inflight/1.0.6:
     resolution: {integrity: sha512-k92I/b08q4wvFscXCLvqfsHCrjrF7yiXsQuIVvVE7N82W3+aqpzuUdBbfhWcy/FZR3/4IgflMgKLOsvPDrGCJA==}

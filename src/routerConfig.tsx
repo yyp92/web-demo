@@ -34,17 +34,8 @@ import {
 } from './components/CssAttr'
 
 import {
-    Debugger,
-    ReactChildren,
-    MiniCalendarTest,
-    CalendarTest,
-    IconTest,
-    SpaceTest,
-    PortalTest,
-    MutateObserverTest,
-    CopyToClipboardTest,
-    ObserverTest,
-    ReactSpringTest
+    ImmutableTest,
+    ImmerTest
 } from './components/MyReact'
 
 export interface RouterConfigItem {
@@ -317,94 +308,23 @@ export const routerConfig: RouterConfigItem[] = [
         icon: null,
         children: [
             {
-                key: 'react-debugger',
+                key: 'immutable',
                 parentKey: 'my-react',
                 index: true,
-                text: 'react-debugger',
+                text: 'immutable',
                 link: '/',
-                template: <Debugger />,
+                template: <ImmutableTest />,
                 icon: null,
             },
             {
-                key: 'react-children',
+                key: 'immer',
                 parentKey: 'my-react',
-                text: 'ReactChildren',
-                link: 'react-children',
-                template: <ReactChildren />,
+                text: 'immer',
+                link: 'immer',
+                template: <ImmerTest />,
                 icon: null,
             },
-            {
-                key: 'portal-test',
-                parentKey: 'my-react',
-                text: 'PortalTest',
-                link: 'portal-test',
-                template: <PortalTest />,
-                icon: null,
-            },
-            {
-                key: 'mutate-observer-test',
-                parentKey: 'my-react',
-                text: 'MutateObserverTest',
-                link: 'mutate-observer-test',
-                template: <MutateObserverTest />,
-                icon: null,
-            },
-            {
-                key: 'copy-to-clipboard-test',
-                parentKey: 'my-react',
-                text: 'CopyToClipboardTest',
-                link: 'copy-to-clipboard-test',
-                template: <CopyToClipboardTest />,
-                icon: null,
-            },
-            {
-                key: 'mini-calendar',
-                parentKey: 'my-react',
-                text: 'MiniCalendar',
-                link: 'mini-calendar',
-                template: <MiniCalendarTest />,
-                icon: null,
-            },
-            {
-                key: 'calendar-test',
-                parentKey: 'my-react',
-                text: 'CalendarTest',
-                link: 'calendar-test',
-                template: <CalendarTest />,
-                icon: null,
-            },
-            {
-                key: 'icon-test',
-                parentKey: 'my-react',
-                text: 'IconTest',
-                link: 'icon-test',
-                template: <IconTest />,
-                icon: null,
-            },
-            {
-                key: 'space-test',
-                parentKey: 'my-react',
-                text: 'SpaceTest',
-                link: 'space-test',
-                template: <SpaceTest />,
-                icon: null,
-            },
-            {
-                key: 'observer-test',
-                parentKey: 'my-react',
-                text: 'ObserverTest',
-                link: 'observer-test',
-                template: <ObserverTest />,
-                icon: null,
-            },
-            {
-                key: 'react-spring-test',
-                parentKey: 'my-react',
-                text: 'ReactSpringTest',
-                link: 'react-spring-test',
-                template: <ReactSpringTest />,
-                icon: null,
-            },
+            
         ]
     },
 
