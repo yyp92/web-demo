@@ -35,7 +35,10 @@ import {
 
 import {
     ImmutableTest,
-    ImmerTest
+    ImmerTest,
+    ContextTest,
+    ContextPerformance,
+    ZustandTest
 } from './components/MyReact'
 
 export interface RouterConfigItem {
@@ -324,7 +327,30 @@ export const routerConfig: RouterConfigItem[] = [
                 template: <ImmerTest />,
                 icon: null,
             },
-            
+            {
+                key: 'react-context',
+                parentKey: 'my-react',
+                text: 'react-context',
+                link: 'react-context',
+                template: <ContextTest />,
+                icon: null,
+            },
+            {
+                key: 'context-performance',
+                parentKey: 'my-react',
+                text: 'react-context-performance',
+                link: 'context-performance',
+                template: <ContextPerformance />,
+                icon: null,
+            },
+            {
+                key: 'zustand',
+                parentKey: 'my-react',
+                text: 'zustand',
+                link: 'zustand',
+                template: <ZustandTest />,
+                icon: null,
+            },
         ]
     },
 

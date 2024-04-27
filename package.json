@@ -31,7 +31,8 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.8.1",
     "recoil": "^0.7.6",
-    "socket.io-client": "^4.7.5"
+    "socket.io-client": "^4.7.5",
+    "zustand": "^4.5.2"
   },
   "devDependencies": {
     "@types/d3-array": "^3.0.4",
