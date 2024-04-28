@@ -38,7 +38,8 @@ import {
     ImmerTest,
     ContextTest,
     ContextPerformance,
-    ZustandTest
+    ZustandTest,
+    MyZustand
 } from './components/MyReact'
 
 export interface RouterConfigItem {
@@ -72,7 +73,7 @@ export const routerConfig: RouterConfigItem[] = [
                 icon: null,
             },
             {
-                key: 'LocalForage',
+                key: 'local-forage',
                 parentKey: 'js-demo',
                 text: 'LocalForage',
                 link: 'local-forage',
@@ -80,7 +81,7 @@ export const routerConfig: RouterConfigItem[] = [
                 icon: null,
             },
             {
-                key: 'DndKit',
+                key: 'react-dnd-kit',
                 parentKey: 'js-demo',
                 text: 'DndKit',
                 link: 'react-dnd-kit',
@@ -88,7 +89,7 @@ export const routerConfig: RouterConfigItem[] = [
                 icon: null,
             },
             {
-                key: 'WebSharedWorker',
+                key: 'web-shared-worker',
                 parentKey: 'js-demo',
                 text: 'WebSharedWorker',
                 link: 'web-shared-worker',
@@ -96,7 +97,7 @@ export const routerConfig: RouterConfigItem[] = [
                 icon: null,
             },
             {
-                key: 'WebWorker',
+                key: 'web-worker',
                 parentKey: 'js-demo',
                 text: 'WebWorker',
                 link: 'web-worker',
@@ -104,7 +105,7 @@ export const routerConfig: RouterConfigItem[] = [
                 icon: null,
             },
             {
-                key: 'WebWorkerTableExport',
+                key: 'web-worker-table-export',
                 parentKey: 'js-demo',
                 text: 'WebWorkerTableExport',
                 link: 'web-worker-table-export',
@@ -112,7 +113,7 @@ export const routerConfig: RouterConfigItem[] = [
                 icon: null,
             },
             {
-                key: 'WebWorkerImagesCompress',
+                key: 'web-worker-images-compress',
                 parentKey: 'js-demo',
                 text: 'WebWorkerImagesCompress',
                 link: 'web-worker-images-compress',
@@ -120,7 +121,7 @@ export const routerConfig: RouterConfigItem[] = [
                 icon: null,
             },
             {
-                key: 'WebSocket',
+                key: 'web-socket',
                 parentKey: 'js-demo',
                 text: 'WebSocket',
                 link: 'web-socket',
@@ -128,7 +129,7 @@ export const routerConfig: RouterConfigItem[] = [
                 icon: null,
             },
             {
-                key: 'SocketIO',
+                key: 'socket-io',
                 parentKey: 'js-demo',
                 text: 'SocketIO',
                 link: 'socket-io',
@@ -349,6 +350,14 @@ export const routerConfig: RouterConfigItem[] = [
                 text: 'zustand',
                 link: 'zustand',
                 template: <ZustandTest />,
+                icon: null,
+            },
+            {
+                key: 'myZustand',
+                parentKey: 'my-react',
+                text: 'my-zustand',
+                link: 'myZustand',
+                template: <MyZustand />,
                 icon: null,
             },
         ]

@@ -39,3 +39,16 @@ context 中如果是一个对象，不管任意属性变了，都会导致依赖
 - 拆分 context，每种数据放在一个 context 里
 - 用 zustand 等状态管理库，因为它们不是用 context 实现的，自然没有这种问题
 - 用 memo 包裹子组件，它会对比新旧 props，没变就不会重新渲染
+
+
+
+
+## zustand
+
+原理：zustand 本身的实现也很简单，就是 getState、setState、subscribe 这些功能，然后再加上 useSyncExternalStore 来触发组件 rerender。
+
+它的核心就是一个 create 函数，传入 state 来创建 store。
+
+create 返回的函数可以传入 selector，取出部分 state 在组件里用。
+
+它的中间件和 redux 一样，就是一个高阶函数，可以对 get、set 做一些扩展。
