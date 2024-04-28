@@ -40,7 +40,8 @@ import {
     ContextPerformance,
     ZustandTest,
     MyZustand,
-    JotaiTest
+    JotaiTest,
+    ReactDndTest
 } from './components/MyReact'
 
 export interface RouterConfigItem {
@@ -367,6 +368,14 @@ export const routerConfig: RouterConfigItem[] = [
                 text: 'jotai',
                 link: 'jotai-test',
                 template: <JotaiTest />,
+                icon: null,
+            },
+            {
+                key: 'react-dnd',
+                parentKey: 'my-react',
+                text: 'react-dnd',
+                link: 'react-dnd',
+                template: <ReactDndTest />,
                 icon: null,
             },
         ]
