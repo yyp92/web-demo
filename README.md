@@ -52,3 +52,18 @@ context 中如果是一个对象，不管任意属性变了，都会导致依赖
 create 返回的函数可以传入 selector，取出部分 state 在组件里用。
 
 它的中间件和 redux 一样，就是一个高阶函数，可以对 get、set 做一些扩展。
+
+
+
+
+## jotai
+### 核心功能
+- 通过 atom 创建原子状态，定义的时候还可以单独指定 get、set 函数（或者叫 read、write 函数），用来实现状态派生、异步状态修改。
+- 组件里可以用 useAtom 来拿到 get、set 函数，也可以通过 useAtomValue、useSetAtom 分别拿。
+- 不需要读取状态的，用 useSetAtom 还可以避免不必要的渲染。
+
+### zustand 和 jotai区别
+- zustand 是所有 state 放在全局 store 里，然后用到的时候 selector 取需要的部分。
+- jotai 是每个 state 单独声明原子状态，用到的时候单独用或者组合用。
+- 一个自上而下，一个自下而上，算是两种思路。
+- zustand 的中间件是通过包一层然后修改 get、set 实现的，而 jotai 天然支持 get、set 的修改。
