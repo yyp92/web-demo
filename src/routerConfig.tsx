@@ -41,7 +41,8 @@ import {
     ZustandTest,
     MyZustand,
     JotaiTest,
-    ReactDndTest
+    ReactDndTest,
+    RefreshTokenTest
 } from './components/MyReact'
 
 export interface RouterConfigItem {
@@ -376,6 +377,14 @@ export const routerConfig: RouterConfigItem[] = [
                 text: 'react-dnd',
                 link: 'react-dnd',
                 template: <ReactDndTest />,
+                icon: null,
+            },
+            {
+                key: 'refresh-token',
+                parentKey: 'my-react',
+                text: 'refresh-token',
+                link: 'refresh-token',
+                template: <RefreshTokenTest />,
                 icon: null,
             },
         ]

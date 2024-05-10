@@ -16,6 +16,7 @@
     "@dnd-kit/utilities": "^3.2.1",
     "@react-spring/web": "^9.7.3",
     "antd": "^5.8.6",
+    "axios": "^1.6.8",
     "copy-to-clipboard": "^3.3.3",
     "d3-array": "^3.2.3",
     "d3-random": "^3.0.1",
