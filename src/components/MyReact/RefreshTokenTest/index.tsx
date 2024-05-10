@@ -32,6 +32,7 @@ interface PendingTask {
     resolve: Function
 }
 
+
 // 加一个 refreshing 的标记，如果在刷新，那就返回一个 promise，并且把它的 resolve 方法还有 config 加到队列里。
 let refreshing = false;
 const queue: PendingTask[] = [];
