@@ -42,7 +42,8 @@ import {
     MyZustand,
     JotaiTest,
     ReactDndTest,
-    RefreshTokenTest
+    RefreshTokenTest,
+    EmailLoginFrontend
 } from './components/MyReact'
 
 export interface RouterConfigItem {
@@ -385,6 +386,14 @@ export const routerConfig: RouterConfigItem[] = [
                 text: 'refresh-token',
                 link: 'refresh-token',
                 template: <RefreshTokenTest />,
+                icon: null,
+            },
+            {
+                key: 'email-login-frontend',
+                parentKey: 'my-react',
+                text: 'email-login-frontend',
+                link: 'email-login-frontend',
+                template: <EmailLoginFrontend />,
                 icon: null,
             },
         ]
