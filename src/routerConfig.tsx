@@ -43,7 +43,8 @@ import {
     JotaiTest,
     ReactDndTest,
     RefreshTokenTest,
-    EmailLoginFrontend
+    EmailLoginFrontend,
+    SseTestFrontend
 } from './components/MyReact'
 
 export interface RouterConfigItem {
@@ -394,6 +395,14 @@ export const routerConfig: RouterConfigItem[] = [
                 text: 'email-login-frontend',
                 link: 'email-login-frontend',
                 template: <EmailLoginFrontend />,
+                icon: null,
+            },
+            {
+                key: 'sse-test-frontend',
+                parentKey: 'my-react',
+                text: '数据推送',
+                link: 'sse-test-frontend',
+                template: <SseTestFrontend />,
                 icon: null,
             },
         ]
