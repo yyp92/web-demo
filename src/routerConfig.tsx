@@ -44,7 +44,8 @@ import {
     ReactDndTest,
     RefreshTokenTest,
     EmailLoginFrontend,
-    SseTestFrontend
+    SseTestFrontend,
+    GifCompressionFrontend
 } from './components/MyReact'
 
 export interface RouterConfigItem {
@@ -403,6 +404,14 @@ export const routerConfig: RouterConfigItem[] = [
                 text: '数据推送',
                 link: 'sse-test-frontend',
                 template: <SseTestFrontend />,
+                icon: null,
+            },
+            {
+                key: 'gif-compression-frontend',
+                parentKey: 'my-react',
+                text: 'gif 压缩',
+                link: 'gif-compression-frontend',
+                template: <GifCompressionFrontend />,
                 icon: null,
             },
         ]
