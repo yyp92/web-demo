@@ -93,3 +93,9 @@ react-dnd 主要就是 useDrag、useDrop、useDragLayout 这 3 个 API。
 其实各种拖拽功能的实现思路比较固定：什么元素可以拖拽，什么元素可以 drop，drop 或者 hover 的时候修改数据触发重新渲染就好了。
 
 比如拖拽排序就是 hover 的时候互换两个 index 的对应的数据，然后 setState 触发渲染。
+
+
+
+
+## svga问题
+`请把 SVGA 文件作为静态资源引入`

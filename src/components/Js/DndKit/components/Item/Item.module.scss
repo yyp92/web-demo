@@ -98,7 +98,10 @@ $focused-outline-color: #4c9ffe;
     &:focus {
       box-shadow: 0 0px 4px 1px rgba(0, 0, 0, 0.1), $box-shadow;
     }
-    cursor: not-allowed;
+
+    & {
+      cursor: not-allowed;
+    }
   }
 
   &.dragOverlay {
