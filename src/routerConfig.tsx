@@ -9,7 +9,8 @@ import {
     WebWorkerImagesCompress,
     WebSocketCom,
     SocketIO,
-    FilePreview
+    FilePreview,
+    ImageFragment
 } from './components/Js'
 import {
     ChartEvenDistribution,
@@ -149,6 +150,14 @@ export const routerConfig: RouterConfigItem[] = [
                 text: '文件预览',
                 link: 'file-preview',
                 template: <FilePreview />,
+                icon: null,
+            },
+            {
+                key: 'image-fragment',
+                parentKey: 'js-demo',
+                text: '图片碎片化展示',
+                link: 'image-fragment',
+                template: <ImageFragment />,
                 icon: null,
             },
         ],

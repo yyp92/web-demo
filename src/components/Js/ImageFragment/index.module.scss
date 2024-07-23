@@ -1,0 +1,59 @@
+.imageBox {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .btn {
+        flex-shrink: 0;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .img {
+        // 和图片的宽高比例一样，解决小块之间的白边问题
+        width: 400px;
+        height: 600px;
+
+        display: flex;
+        flex-wrap: wrap;
+
+        .smallBox {
+            background-image: url('/image-fragment.png');
+            box-sizing: border-box;
+            background-repeat: no-repeat;
+            // background-size: 100%;
+
+            opacity: 0;
+            animation: smallBoxAnimate 2000ms linear forwards;
+
+            --rotateX: rotateX(0);
+            --rotateY: rotateY(0);
+            transform: var(--rotateX) var(--rotateY) scale(0.8);
+        }
+    }
+
+
+}
+
+@keyframes smallBoxAnimate {
+    0% {
+        opacity: 0;
+        transform: var(--rotateX) var(--rotateY) scale(0.8);
+    }
+
+    40% {
+        opacity: 0;
+        transform: var(--rotateX) var(--rotateY) scale(0.8);
+    }
+
+    70% {
+        opacity: 1;
+        transform: rotateX(0) rotateY(0) scale(0.8);
+    }
+
+    100% {
+        opacity: 1;
+        transform: rotateX(0) rotateY(0) scale(1);
+    }
+}
