@@ -10,7 +10,8 @@ import {
     WebSocketCom,
     SocketIO,
     FilePreview,
-    ImageFragment
+    ImageFragment,
+    SheetNameDemo
 } from './components/Js'
 import {
     ChartEvenDistribution,
@@ -158,6 +159,14 @@ export const routerConfig: RouterConfigItem[] = [
                 text: '图片碎片化展示',
                 link: 'image-fragment',
                 template: <ImageFragment />,
+                icon: null,
+            },
+            {
+                key: 'sheet-name',
+                parentKey: 'js-demo',
+                text: 'SheetNameDemo',
+                link: 'sheet-name',
+                template: <SheetNameDemo />,
                 icon: null,
             },
         ],

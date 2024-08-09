@@ -1,0 +1,30 @@
+.customComponent {
+    display: flex;
+    flex-wrap: wrap;
+
+    .item {
+        flex-grow: 0;
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+        margin-right: 10px;
+        padding: 4px 10px;
+        border: 1px solid var(--border-color-base);
+        border-radius: var(--border-radius-base);
+        background-color: var(--primary-white-color);
+        cursor: move;
+        font-size: 12px;
+        font-weight: 400;
+        color: var(--text-color);
+        line-height: 18px;
+
+        & > .iconfont {
+            color: var(--icon-color);
+        }
+    }
+
+    .itemDisabled {
+        border: 1px solid var(--bg-grey-color);
+        background-color: var(--bg-grey-color);
+    }
+}

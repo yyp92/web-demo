@@ -1,0 +1,110 @@
+.sheetName {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    border-top: 1px solid var(--border-color-base);
+
+    .sheetNameContent {
+        display: flex;
+        align-items: center;
+
+        .sheetNameItem {
+            width: 100px;
+            padding: 5px 16px;
+            border-radius: var(--border-radius-base);
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 400;
+            line-height: 20px;
+            margin-left: 8px;
+            text-align: center;
+            overflow: hidden;
+
+            &:first-child {
+                margin-left: 0;
+            }
+            
+
+            & > div {
+                max-width: 100px;
+                white-space: nowrap;
+                overflow: hidden; 
+                text-overflow: ellipsis; 
+            }
+
+            &:hover {
+                background: var(--primary-color);
+                color: var(--primary-white-color);
+            }
+
+
+            :global {
+                .ant-input {
+                    width: 100%;
+                    padding: 0;
+                    background-color: transparent;
+                    border: unset;
+                }
+
+                .ant-input:focus,
+                .ant-input-focused {
+                    border: unset !important;
+                }
+            }
+        }
+
+        .sheetNameItemActive {
+            background: var(--primary-color);
+            color: var(--primary-white-color);
+
+            :global {
+                .ant-input {
+                    color: var(--primary-white-color);
+                }
+            }
+        }
+
+        .sheetNameItemEdit {
+            background: rgba(53, 145, 244, 0.10);
+
+            &:hover {
+                background: rgba(53, 145, 244, 0.10);
+            }
+
+            :global {
+                .ant-input {
+                    color: var(--text-color);
+                    background: var(--primary-white-color);
+                }
+            }
+        }
+    }
+
+    .sheetAdd {
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        padding: 0 16px;
+        height: 20px;
+        border-left: 1px solid var(--border-color-base);
+        margin-left: 16px;
+
+        :global {
+            .iconfont {
+                color: var(--icon-color);
+            }
+        }
+    }
+
+    .sheetAddDisabled {
+        cursor: not-allowed;
+
+        :global {
+            .iconfont {
+                // color: @text-color-secondary;
+                cursor: not-allowed !important;
+            }
+        }
+    }
+}

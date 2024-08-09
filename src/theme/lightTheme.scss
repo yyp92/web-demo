@@ -1,0 +1,42 @@
+:root[data-theme="light"] {
+    --primary-text-color: #FFFFFF;
+    --primary-white-color: #FFFFFF;
+  
+    // 全局主色
+    --primary-color: #3591F4;
+    // 链接色
+    --link-color: var(--primary-color);
+    // 成功色
+    --success-color: #29C78F;
+    // 警告色
+    --warning-color: #FFB439;
+    // 错误色
+    --error-color: #F43835;
+  
+    // 主文本色
+    --text-color: #363A45; 
+    // 次文本色
+    --text-color-secondary: #898D97; 
+  
+    // 白的背景
+    --bg-white-color: var(--primary-white-color);
+    --bg-grey-color: #F2F4F9;
+    --bg-black2-color: var(--primary-white-color);
+  
+    // 边框、输入框、分割线
+    --border-color-base: #DDE6F0;
+    // icon
+    --icon-color: #CCD6DD;
+  
+  
+  
+    // 主字号
+    --font-size-base: 14px;
+  
+    // 组件/浮层圆角
+    --border-radius-base: 4px;
+    --modal-border-radius-base: 5px;
+  
+    // 阴影
+    --box-shadow-color: #000000;
+}
