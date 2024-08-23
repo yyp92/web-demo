@@ -39,7 +39,6 @@ export default function CustomDatePicker(props: any) {
             const parentTask = gantt.getTask(formValue.parent)
             const endDate = new Date(parentTask?.end_date)
             endDate.setDate(endDate.getDate() - 1)
-
             parentLimit = cur.isBefore(dayjs(parentTask?.start_date)) || cur.isAfter(dayjs(endDate))
         }
 

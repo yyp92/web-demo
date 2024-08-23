@@ -77,12 +77,12 @@ export const DhtmlxGantt = () => {
         const tempLinks: any[] = []
 
         tempData.data.forEach((item: any) => {
-            const temp = { ...item }
+            const temp: any = { ...item }
 
             // 如果 外部的开始日期和结束日期都有值，更新成 0 点即可
-            const startDate = new Date(`${temp.start_date} 00:00:00`)
+            const startDate = new Date(`${dayjs(temp?.start_date) ? dayjs(temp?.start_date).format('YYYY-MM-DD') : Date.now()} 00:00:00`)
             temp.start_date = startDate
-            const endDate = new Date(`${temp.end_date} 00:00:00`)
+            const endDate = new Date(`${dayjs(temp?.end_date) ? dayjs(temp?.end_date).format('YYYY-MM-DD') : Date.now()} 00:00:00`)
             // 在渲染页面的时候 结束日期 + 1天
             endDate.setDate(endDate.getDate() + 1);
             temp.end_date = endDate
@@ -270,8 +270,8 @@ export const DhtmlxGantt = () => {
             date.setTime(task.end_date.getTime())
 
             // 打开模态框时，如果结束时间 比 开始时间大时 要 减一天
-            if (task.end_date.getTime() > task.start_date.getTime()) {
-                date.setTime(task.end_date.getTime() - 24 * 60 * 60 * 1000)
+            if (task?.end_date?.getTime() > task?.start_date?.getTime()) {
+                date.setTime(task?.end_date?.getTime() - 24 * 60 * 60 * 1000)
             }
 
             tempTask.end_date = date
@@ -299,8 +299,8 @@ export const DhtmlxGantt = () => {
 
         gantt.eachTask((child: any) => {
             const offsetDur = gantt.calculateDuration(
-                task.start_date,
-                child.start_date
+                task?.start_date,
+                child?.start_date
             )
 
             child.offsetDur = offsetDur
@@ -347,10 +347,10 @@ export const DhtmlxGantt = () => {
 
         // 获取父任务的结束日期
         const parentTask: any = gantt.getTask(record.parent)
-        const parentEndDate = new Date(parentTask.end_date)
+        const parentEndDate = new Date(parentTask?.end_date)
 
         // 计算出 过滤了周末的 持续时间，即为 持续时间的最大值
-        const startDate = new Date(record.start_date)
+        const startDate = new Date(record?.start_date)
         const diffDay: any = gantt.calculateDuration(startDate, parentEndDate)
 
         setMaxCount(Number(diffDay))
@@ -636,7 +636,7 @@ export const DhtmlxGantt = () => {
             if (mode === modes.move) {
                 limitLeft = limitMoveLeft
                 limitRight = limitMoveRight
-                const startDate = new Date(task.start_date)
+                const startDate = new Date(task?.start_date)
                 const endDate = gantt.calculateEndDate(startDate, task.duration)
 
                 task.start_date = startDate
@@ -651,10 +651,10 @@ export const DhtmlxGantt = () => {
 
             // 将 parent 与 自己做判断
             // +Date 为快速转换为 时间戳的方式
-            if (parent && +parent.end_date < +task.end_date) {
+            if (parent && +parent?.end_date < +task?.end_date) {
                 limitLeft(task, parent)
             }
-            if (parent && +parent.start_date > +task.start_date) {
+            if (parent && +parent?.start_date > +task?.start_date) {
                 limitRight(task, parent)
             }
 
@@ -675,7 +675,7 @@ export const DhtmlxGantt = () => {
                         duration
                     } = child
                     // 子级的开始日期为 父级开始日期 + 与父级开始日期的偏移量
-                    const startDate = new Date(+task.start_date + offsetDur * 86400000)
+                    const startDate = new Date(+task?.start_date + offsetDur * 86400000)
                     // 子级的结束日期为 开始日期 + 持续时间，这里不重算休息日 是因为最后会重算
                     const endDate = new Date(+startDate + duration * 86400000)
 
@@ -697,7 +697,7 @@ export const DhtmlxGantt = () => {
                     if (+task.end_date < +child.end_date) {
                         limitResizeLeft(task, child)
                     }
-                    else if (+task.start_date > +child.start_date) {
+                    else if (+task?.start_date > +child?.start_date) {
                         limitResizeRight(task, child)
                     }
                 }
@@ -715,7 +715,7 @@ export const DhtmlxGantt = () => {
 
             if (mode === modes.move) {
                 // 如果 开始时间到节假日 延迟到下一个工作日
-                const newStartDate = delayStartDate(task.start_date)
+                const newStartDate = delayStartDate(task?.start_date)
                 const newEndDate = gantt.calculateEndDate(newStartDate, task.duration)
                 task.start_date = newStartDate
                 task.end_date = newEndDate
@@ -723,10 +723,10 @@ export const DhtmlxGantt = () => {
                 // setDynFieldValue(task, 'end_date', newEndDate);
 
                 // 如果父级存在，那么在拖动完后，进行重算时，不能超过父级的范围
-                if (parent && +parent.start_date > +task.start_date) {
+                if (parent && +parent?.start_date > +task?.start_date) {
                     limitMoveRight(task, parent)
                 }
-                if (parent && +parent.end_date < +task.end_date) {
+                if (parent && +parent?.end_date < +task?.end_date) {
                     limitMoveLeft(task, parent)
                 }
 
@@ -737,7 +737,7 @@ export const DhtmlxGantt = () => {
                 }, id);
             }
             else if (mode === modes.resize) {
-                const newStartDate = delayStartDate(task.start_date)
+                const newStartDate = delayStartDate(task?.start_date)
                 const newEndDate = gantt.calculateEndDate(newStartDate, task.duration)
                 task.start_date = newStartDate
                 task.end_date = newEndDate
@@ -976,13 +976,13 @@ export const DhtmlxGantt = () => {
     function handleFormChange(value: any, allValue: any) {
         // console.log(value, allValue, 'value, allValue')
         // 如果 开始日期 或 持续时间 的值变动了，需要更新 结束日期
-        if (value.start_date || value.duration) {
+        if (value?.start_date || value.duration) {
             // eslint-disable-next-line camelcase
             const { start_date } = allValue
             let { duration } = allValue
 
             // 如果这次更新的时 start_date, 需要重新计算 duration 的上限
-            if (value.start_date) {
+            if (value?.start_date) {
                 const durationLimit = handleCalcMax(allValue)
 
                 // 当 duration 上限存在 并且 duration 大于上限时， duration 等于上线
@@ -1033,8 +1033,8 @@ export const DhtmlxGantt = () => {
                 // 如果 任务 不在父任务的范围内
                 if (
                     !(
-                        allValue.end_date <= parentEndDate &&
-                        allValue.start_date >= parentTask.start_date
+                        allValue?.end_date <= parentEndDate &&
+                        allValue?.start_date >= parentTask?.start_date
                     )
                 ) {
                     // 如果 任务原本的持续时间 大于 父任务的持续时间，任务的持续时间改为与父任务相等
@@ -1043,7 +1043,7 @@ export const DhtmlxGantt = () => {
                     }
 
                     // 获取父级的 startDate 并计算 任务修改到父任务日期范围内后的 endDate
-                    const startDate = parentTask.start_date
+                    const startDate = parentTask?.start_date
                     const endDate = gantt.calculateEndDate(startDate, tempTask.duration)
                     endDate.setDate(endDate.getDate() - 1)
 
@@ -1271,7 +1271,7 @@ export const DhtmlxGantt = () => {
 
         gantt.eachTask((child) => {
             // 限制 任务子级的 开始日期和结束日期
-            controlChildLimit(child, newTask, newTask.start_date, undefined)
+            controlChildLimit(child, newTask, newTask?.start_date, undefined)
         }, newTask.id)
 
         setVisible(false)
@@ -1457,12 +1457,12 @@ export const DhtmlxGantt = () => {
                 // 如果 移动任务的开始日期 大于 父任务的开始日期 并且 小于父任务的结束日期
                 // 需要计算其 与 父任务开始日期的差值
                 if (
-                    moveTask.start_date > parentTask.start_date &&
-                    moveTask.start_date < parentTask.end_date
+                    moveTask?.start_date > parentTask?.start_date &&
+                    moveTask?.start_date < parentTask?.end_date
                 ) {
                     const offsetDur = gantt.calculateDuration(
-                        parentTask.start_date,
-                        moveTask.start_date
+                        parentTask?.start_date,
+                        moveTask?.start_date
                     );
                     moveTask.offsetDur = offsetDur
                 }
@@ -1471,7 +1471,7 @@ export const DhtmlxGantt = () => {
                 }
 
                 // 限制任务的 开始结束日期
-                controlChildLimit(moveTask, parentTask, parentTask.start_date, true)
+                controlChildLimit(moveTask, parentTask, parentTask?.start_date, true)
             }
             else {
                 // 当 移动的任务的持续时间 大于 父级的持续时间
@@ -1565,7 +1565,7 @@ export const DhtmlxGantt = () => {
     // 拖拽 到父级开始节点的限制
     function limitMoveLeft(task: any, limit: any) {
         // const dur = task.end_date - task.start_date;
-        const dur = gantt.calculateDuration(task.start_date, task.end_date)
+        const dur = gantt.calculateDuration(task?.start_date, task.end_date)
 
         // task.end_date = new Date(limit.end_date);
         // task.start_date = new Date(+task.end_date - dur);
@@ -1579,24 +1579,24 @@ export const DhtmlxGantt = () => {
 
     // 拖拽 到父级结束节点的限制
     function limitMoveRight(task: any, limit: any) {
-        const dur = task.end_date - task.start_date
+        const dur = task?.end_date - task?.start_date
         // const dur = countWeekdays(task.start_date, task.end_date) * 86400000
 
-        task.start_date = new Date(limit.start_date)
-        task.end_date = new Date(+task.start_date + dur)
+        task.start_date = new Date(limit?.start_date)
+        task.end_date = new Date(+task?.start_date + dur)
         // setDynFieldValue(task, 'start_date', new Date(limit.start_date));
         // setDynFieldValue(task, 'end_date', new Date(+task.start_date + dur));
     }
 
     // 更改 子任务的开始时间 不能超过父任务的限制
     function limitResizeLeft(task: any, limit: any) {
-        task.end_date = new Date(limit.end_date)
+        task.end_date = new Date(limit?.end_date)
         // setDynFieldValue(task, 'end_date', new Date(limit.end_date));
     }
 
     // 更改 子任务的结束时间 不能超过父任务的限制
     function limitResizeRight(task: any, limit: any) {
-        task.start_date = new Date(limit.start_date)
+        task.start_date = new Date(limit?.start_date)
         // setDynFieldValue(task, 'start_date', new Date(limit.start_date));
     }
 
