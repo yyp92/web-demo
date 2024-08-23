@@ -48,7 +48,12 @@ import {
     RefreshTokenTest,
     EmailLoginFrontend,
     SseTestFrontend,
-    GifCompressionFrontend
+    GifCompressionFrontend,
+    UseLocalStorage,
+    UseOnClickOutside,
+    UseWindowSize,
+    UseFocus,
+    DhtmlxGantt
 } from './components/MyReact'
 
 export interface RouterConfigItem {
@@ -439,6 +444,46 @@ export const routerConfig: RouterConfigItem[] = [
                 text: 'gif 压缩',
                 link: 'gif-compression-frontend',
                 template: <GifCompressionFrontend />,
+                icon: null,
+            },
+            {
+                key: 'dhtmlx-gantt',
+                parentKey: 'my-react',
+                text: '甘特图',
+                link: 'dhtmlx-gantt',
+                template: <DhtmlxGantt />,
+                icon: null,
+            },
+            {
+                key: 'use-localStorage',
+                parentKey: 'my-react',
+                text: 'hooks-useLocalStorage',
+                link: 'use-localStorage',
+                template: <UseLocalStorage />,
+                icon: null,
+            },
+            {
+                key: 'use-onClickOutside',
+                parentKey: 'my-react',
+                text: 'hooks-useOnClickOutsid',
+                link: 'use-onClickOutsid',
+                template: <UseOnClickOutside />,
+                icon: null,
+            },
+            {
+                key: 'use-windowSize',
+                parentKey: 'my-react',
+                text: 'hooks-useWindowSize',
+                link: 'use-windowSize',
+                template: <UseWindowSize />,
+                icon: null,
+            },
+            {
+                key: 'use-focus',
+                parentKey: 'my-react',
+                text: 'hooks-useFocus',
+                link: 'use-focus',
+                template: <UseFocus />,
                 icon: null,
             },
         ]

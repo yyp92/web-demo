@@ -32,6 +32,9 @@ importers:
       axios:
         specifier: ^1.6.8
         version: 1.7.2
+      bignumber.js:
+        specifier: ^9.1.2
+        version: 9.1.2
       copy-to-clipboard:
         specifier: ^3.3.3
         version: 3.3.3
@@ -44,6 +47,9 @@ importers:
       dayjs:
         specifier: ^1.11.10
         version: 1.11.12
+      dhtmlx-gantt:
+        specifier: ^8.0.9
+        version: 8.0.9
       exceljs:
         specifier: ^4.4.0
         version: 4.4.0
@@ -1116,6 +1122,9 @@ packages:
   big.js@5.2.2:
     resolution: {integrity: sha512-vyL2OymJxmarO8gxMr0mhChsO9QGwhynfuu4+MHTAW6czfq9humCB7rKpUjDd9YUiDPU4mzpyupFSvOClAwbmQ==}
 
+  bignumber.js@9.1.2:
+    resolution: {integrity: sha512-2/mKyZH9K85bzOEfhXDBFZTGd1CTs+5IHpeFQo9luiBG7hghdC851Pj2WAhb6E3R6b9tZj/XKhbg4fum+Kepug==}
+
   binary-extensions@1.13.1:
     resolution: {integrity: sha512-Un7MIEDdUC5gNpcGDV97op1Ywk748MpHcFTHoYs6qnj1Z3j7I53VG3nwZhKzoBZmbdRNnb6WRdFlwl7tSDuZGw==}
     engines: {node: '>=0.10.0'}
@@ -1519,6 +1528,9 @@ packages:
 
   des.js@1.1.0:
     resolution: {integrity: sha512-r17GxjhUCjSRy8aiJpr8/UadFIzMzJGexI3Nmz4ADi9LYSFx4gTBp80+NaX/YsXWWLhpZ7v/v/ubEc/bCNfKwg==}
+
+  dhtmlx-gantt@8.0.9:
+    resolution: {integrity: sha512-DONbnIjmVv7KiuHPmSEjZA2/XoSVGOviqx2vxRk/Vml+m8/YWMhoW+vP/rfkGEL8N764Gay41hI1ztfiNjWIVQ==}
 
   diffie-hellman@5.0.3:
     resolution: {integrity: sha512-kqag/Nl+f3GwyK25fhUMYj81BUOrZ9IuJsjIcDE5icNM9FJHAVm3VcUDxdLPoQtTuUylWm6ZIknYJwwaPxsUzg==}
@@ -4557,6 +4569,8 @@ snapshots:
 
   big.js@5.2.2: {}
 
+  bignumber.js@9.1.2: {}
+
   binary-extensions@1.13.1:
     optional: true
 
@@ -5039,6 +5053,8 @@ snapshots:
     dependencies:
       inherits: 2.0.4
       minimalistic-assert: 1.0.1
+
+  dhtmlx-gantt@8.0.9: {}
 
   diffie-hellman@5.0.3:
     dependencies:

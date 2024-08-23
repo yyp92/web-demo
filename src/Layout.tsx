@@ -1,11 +1,12 @@
 // ! layout 布局
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import { Routes, Route, Outlet, Link, useRoutes, useLocation, useNavigate } from 'react-router-dom';
 import c from 'classnames'
 
 import {RouterConfigItem, routerConfig} from './routerConfig'
 
 import s from './index.module.scss'
+import { Button } from 'antd';
 
 /**
  * <Route path="/" element={<LayoutPage />}>
@@ -146,11 +147,44 @@ const renderNav = (list: RouterConfigItem[]) => {
 }
 
 const LayoutPage = () => {
+    const [isDark, setIsDark] = useState<boolean>(false)
+ 
+    useEffect(() => {
+        // todo 根据逻辑来显示主题
+        getDarkTheme(isDark ? 1 : 0)
+    }, [isDark])
+
+    // * 主题切换
+    // 0： light, 1: dark
+    const getDarkTheme = (theme: number) => {
+        // 获取根元素
+        const root = document.documentElement;
+
+        if (theme != 1) {
+            // 修改 data-theme 属性的值为 "light"
+            root.setAttribute('data-theme', 'light');
+            return
+        }
+
+        // 修改 data-theme 属性的值为 "dark"
+        root.setAttribute('data-theme', 'dark');
+    }
+
     return (
         <div className={s.container}>
             {/* "布局路由（layout）"适合放置一些被所有页面共享的组件，比如导航栏 */}
             <nav className={s.leftSide}>
+                <div className={s.logo}>个人练习</div>
+
                 {renderNav(routerConfig)}
+
+                <Button
+                    className={s.changeTheme}
+                    type="primary"
+                    onClick={() => {
+                        setIsDark(!isDark)
+                    }}
+                >{isDark ? '明亮' : '暗黑'}</Button>
             </nav>
 
             <div
@@ -235,7 +269,6 @@ const Layout = () => {
     // 初始化激活路径
     const {pathname = ''} = useLocation() ?? {}
     const defaultContext = {initPathname: pathname}
-    
 
     /**
      * 路由嵌套， 嵌套的子路由路径是基于父路由路径生成的，
