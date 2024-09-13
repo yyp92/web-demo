@@ -16,6 +16,7 @@
     "@dnd-kit/sortable": "^7.0.2",
     "@dnd-kit/utilities": "^3.2.1",
     "@react-spring/web": "^9.7.3",
+    "@xyflow/react": "^12.3.0",
     "antd": "^5.8.6",
     "axios": "^1.6.8",
     "bignumber.js": "^9.1.2",
@@ -43,6 +44,7 @@
     "react-router-dom": "^6.8.1",
     "recoil": "^0.7.6",
     "socket.io-client": "^4.7.5",
+    "styled-components": "^6.1.13",
     "svgaplayerweb": "^2.3.2",
     "zustand": "^4.5.2"
   },

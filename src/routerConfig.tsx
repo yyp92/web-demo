@@ -53,7 +53,10 @@ import {
     UseOnClickOutside,
     UseWindowSize,
     UseFocus,
-    DhtmlxGantt
+    DhtmlxGantt,
+    ReactFlow,
+    AudioFlow,
+    OnlinePiano
 } from './components/MyReact'
 
 export interface RouterConfigItem {
@@ -484,6 +487,30 @@ export const routerConfig: RouterConfigItem[] = [
                 text: 'hooks-useFocus',
                 link: 'use-focus',
                 template: <UseFocus />,
+                icon: null,
+            },
+            {
+                key: 'react-flow',
+                parentKey: 'my-react',
+                text: 'react-flow',
+                link: 'react-flow',
+                template: <ReactFlow />,
+                icon: null,
+            },
+            {
+                key: 'audio-flow',
+                parentKey: 'my-react',
+                text: 'audio-flow',
+                link: 'audio-flow',
+                template: <AudioFlow />,
+                icon: null,
+            },
+            {
+                key: 'online-piano',
+                parentKey: 'my-react',
+                text: 'online-piano',
+                link: 'online-piano',
+                template: <OnlinePiano />,
                 icon: null,
             },
         ]

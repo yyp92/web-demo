@@ -65,7 +65,7 @@ export const checkIsOverflowed = (ref: any, width: number = 0) => {
 /**
  * * 根据内容计算宽度
  */
-export const calculateWidth = (title: string) => {
+export const calculateWidth = (title: string, minWidth: number = 88) => {
     // 创建一个临时的 DOM 元素
     const tempElement = document.createElement('span');
     // 将标题内容设置到临时元素中
@@ -85,7 +85,7 @@ export const calculateWidth = (title: string) => {
 
     // 返回计算后的宽度
     // 最小宽度为88px
-    return newWidth > 88 ? newWidth : 88
+    return newWidth > minWidth ? newWidth : minWidth
 }
 
 
