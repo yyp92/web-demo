@@ -1,0 +1,67 @@
+.triggerWraper {
+    overflow: hidden;
+    margin-top: 16px;
+    // border-bottom: 1px solid var(--new-border-color-base);
+
+    &:last-child {
+        border-bottom: none;
+    }
+
+    .title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 6px 16px;
+        background-color: var(--bg-grey-color);
+        border-radius: 4px;
+
+        .left {
+            flex: 1;
+            display: flex;
+            align-items: center;
+
+            & > a {
+                flex: 1;
+                cursor: pointer;
+            }
+        }
+
+        .icon {
+            color: var(--icon-color);
+        }
+
+        .animated1 {
+            animation: animated-form 0.3s linear forwards;
+        }
+
+        .animated2 {
+            animation: animated-to 0.3s linear forwards;
+        }
+
+        :global {
+            .icon_jiantou_you {
+                color: var(--text-color) !important;
+            }
+        }
+    }
+}
+
+:global {
+    @keyframes animated-form {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(90deg);
+        }
+    }
+
+    @keyframes animated-to {
+        from {
+            transform: rotate(90deg);
+        }
+        to {
+            transform: rotate(0deg);
+        }
+    }
+}

@@ -7,6 +7,7 @@ import {RouterConfigItem, routerConfig} from './routerConfig'
 
 import s from './index.module.scss'
 import { Button } from 'antd';
+import Triggle from './components/Common/triggle';
 
 /**
  * <Route path="/" element={<LayoutPage />}>
@@ -92,15 +93,23 @@ const renderNavItem = (
                                 key={key}
                                 className={c({[s.leftSideItemHidden]: troggle})}
                             >
-                                <Link
-                                    className={c({
-                                        [s.leftSideItemActive]: isActive
-                                    })}
-                                    onClick={() => handleItemClick(key) as any}
-                                    to={newLink as any}
-                                >{text}</Link>
+                                <Triggle
+                                    title={
+                                        <Link
+                                            className={c(
+                                                {
+                                                    [s.leftSideItemActive]: isActive
+                                                }
+                                            )}
+                                            onClick={() => handleItemClick(key) as any}
+                                            to={newLink as any}
+                                        >{text}</Link>
+                                    }
+                                    children={renderNavItem(children, active, handleItemClick, index, item)}
+                                    triggle={!troggle}
+                                />
 
-                                {renderNavItem(children, active, handleItemClick, index, item)}
+                                {/* {renderNavItem(children, active, handleItemClick, index, item)} */}
                             </li>
                         )
                     }

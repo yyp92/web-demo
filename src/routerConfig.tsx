@@ -56,7 +56,8 @@ import {
     DhtmlxGantt,
     ReactFlow,
     AudioFlow,
-    OnlinePiano
+    OnlinePiano,
+    ExcelPreview
 } from './components/MyReact'
 
 export interface RouterConfigItem {
@@ -114,10 +115,10 @@ export const routerConfig: RouterConfigItem[] = [
                 icon: null,
             },
             {
-                key: 'web-worker',
+                key: 'web-worker1',
                 parentKey: 'js-demo',
                 text: 'WebWorker',
-                link: 'web-worker',
+                link: 'web-worker1',
                 template: <WebWorker />,
                 icon: null,
             },
@@ -511,6 +512,14 @@ export const routerConfig: RouterConfigItem[] = [
                 text: 'online-piano',
                 link: 'online-piano',
                 template: <OnlinePiano />,
+                icon: null,
+            },
+            {
+                key: 'excel-preview',
+                parentKey: 'my-react',
+                text: 'excel-preview',
+                link: 'excel-preview',
+                template: <ExcelPreview />,
                 icon: null,
             },
         ]

@@ -140,7 +140,7 @@ export const downloadFile = (
  * * 生成序列字母头
  * @param count
  */
-const sequenceCharCode = (count: number): Array<string> => {
+export const sequenceCharCode = (count: number): Array<string> => {
     let charList: Array<any> = []
 
     for (var i = 0; i < count; i++) {
