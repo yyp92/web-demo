@@ -1,3 +1,5 @@
+import {isFunction} from 'lodash'
+
 // * 获取url参数
 export const getUrlParams = (url: string = '') => {
     const params: any = {}
@@ -95,35 +97,32 @@ export const calculateWidth = (title: string, minWidth: number = 88) => {
  * @param downloadFileName 文件名
  * @param handleCancel 回调
  */
+// 下载文件
 export const downloadFile = (
     output: any,
-    downloadFileName = '未命名文件',
-    handleCancel?: any
+    downloadFileName: string = '未命名文件',
+    handleCancel: () => void = () => {}
 ) => {
-    if (!output) {
-        handleCancel && handleCancel()
+    if (!output && isFunction(handleCancel)) {
+        handleCancel()
         return
     }
-
-    fetch(
-        output,
-        {
-            responseType: 'blob'
-        } as any
-    )
-        .then(res => res.blob())
-        .then(res => {
+  
+    fetch(output, {responseType: 'blob'} as any)
+        .then((res: any) => res?.blob?.())
+        .then((res: any) => {
             const link = document.createElement('a');
             link.href = window.URL.createObjectURL(res);
             link.download = downloadFileName;
             link.style.display = 'none';
             document.body.appendChild(link);
             link.click();
-            handleCancel && handleCancel()
-        })
-        .catch(e => {
+        }).catch(e => {
             // console.error(e)
             // handleCancel()
+        })
+        .finally(() => {
+            isFunction(handleCancel) && handleCancel()
         })
 }
 
