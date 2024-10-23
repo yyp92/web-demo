@@ -105,22 +105,14 @@ export const downloadFile = (
         return
     }
 
-    fetch(output, { responseType: 'blob' } as any).then(res => res.blob()).then(res => {
-        if ((window?.navigator as any)?.msSaveBlob) {
-            const suffix = output.split('.').pop();
-            downloadFileName = downloadFileName === '未命名文件'
-                ? downloadFileName + '.' + suffix
-                : downloadFileName;
-
-            try {
-                (window?.navigator as any)?.msSaveBlob(res, downloadFileName);
-                handleCancel && handleCancel()
-            }
-            catch (e) {
-                handleCancel && handleCancel()
-            }
-        }
-        else {
+    fetch(
+        output,
+        {
+            responseType: 'blob'
+        } as any
+    )
+        .then(res => res.blob())
+        .then(res => {
             const link = document.createElement('a');
             link.href = window.URL.createObjectURL(res);
             link.download = downloadFileName;
@@ -128,11 +120,11 @@ export const downloadFile = (
             document.body.appendChild(link);
             link.click();
             handleCancel && handleCancel()
-        }
-    }).catch(e => {
-        // console.error(e)
-        // handleCancel()
-    })
+        })
+        .catch(e => {
+            // console.error(e)
+            // handleCancel()
+        })
 }
 
 
