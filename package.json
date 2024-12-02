@@ -27,6 +27,7 @@
     "dhtmlx-gantt": "^8.0.9",
     "exceljs": "^4.4.0",
     "file-saver": "^2.0.5",
+    "fuse.js": "^7.0.0",
     "highlight.js": "^11.10.0",
     "html2canvas": "^1.4.1",
     "immer": "^10.0.4",

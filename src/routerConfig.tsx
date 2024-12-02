@@ -11,7 +11,8 @@ import {
     SocketIO,
     FilePreview,
     ImageFragment,
-    SheetNameDemo
+    SheetNameDemo,
+    FuseCom
 } from './components/Js'
 import {
     ChartEvenDistribution,
@@ -176,6 +177,14 @@ export const routerConfig: RouterConfigItem[] = [
                 text: 'SheetNameDemo',
                 link: 'sheet-name',
                 template: <SheetNameDemo />,
+                icon: null,
+            },
+            {
+                key: 'fuse-js',
+                parentKey: 'js-demo',
+                text: '模糊搜索库',
+                link: 'fuse-js',
+                template: <FuseCom />,
                 icon: null,
             },
         ],
