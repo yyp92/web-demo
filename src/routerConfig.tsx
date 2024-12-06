@@ -12,7 +12,8 @@ import {
     FilePreview,
     ImageFragment,
     SheetNameDemo,
-    FuseCom
+    FuseCom,
+    ConcurrencyRequest
 } from './components/Js'
 import {
     ChartEvenDistribution,
@@ -185,6 +186,14 @@ export const routerConfig: RouterConfigItem[] = [
                 text: '模糊搜索库',
                 link: 'fuse-js',
                 template: <FuseCom />,
+                icon: null,
+            },
+            {
+                key: 'concurrency-request',
+                parentKey: 'js-demo',
+                text: '并发请求',
+                link: 'concurrency-request',
+                template: <ConcurrencyRequest />,
                 icon: null,
             },
         ],
