@@ -59,7 +59,8 @@ import {
     ReactFlow,
     AudioFlow,
     OnlinePiano,
-    ExcelPreview
+    ExcelPreview,
+    ReactEvent
 } from './components/MyReact'
 
 export interface RouterConfigItem {
@@ -540,6 +541,15 @@ export const routerConfig: RouterConfigItem[] = [
                 template: <ExcelPreview />,
                 icon: null,
             },
+            {
+                key: 'react-event-stopPropagation',
+                parentKey: 'my-react',
+                text: 'React阻止事件冒泡',
+                link: 'react-event-stopPropagation',
+                template: <ReactEvent />,
+                icon: null,
+            },
+            
         ]
     },
 
