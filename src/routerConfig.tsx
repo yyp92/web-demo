@@ -60,7 +60,8 @@ import {
     AudioFlow,
     OnlinePiano,
     ExcelPreview,
-    ReactEvent
+    ReactEvent,
+    OverflowTooltips
 } from './components/MyReact'
 
 export interface RouterConfigItem {
@@ -549,7 +550,14 @@ export const routerConfig: RouterConfigItem[] = [
                 template: <ReactEvent />,
                 icon: null,
             },
-            
+            {
+                key: 'overflow-tooltip',
+                parentKey: 'my-react',
+                text: '文字超出省略号-tooltip',
+                link: 'overflow-tooltips',
+                template: <OverflowTooltips />,
+                icon: null,
+            },
         ]
     },
 
