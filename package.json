@@ -47,6 +47,7 @@
     "socket.io-client": "^4.7.5",
     "styled-components": "^6.1.13",
     "svgaplayerweb": "^2.3.2",
+    "uuid": "^11.1.0",
     "zustand": "^4.5.2"
   },
   "devDependencies": {

@@ -12,7 +12,7 @@ axios.interceptors.request.use(function (config) {
 })
 
 async function refreshToken() {
-    const res = await axios.get(
+    const res: any = await axios.get(
         'http://localhost:3000/user/refresh',
         {
             params: {
@@ -21,8 +21,8 @@ async function refreshToken() {
         }
     );
 
-    localStorage.setItem('access_token', res.data.access_token || '');
-    localStorage.setItem('refresh_token', res.data.refresh_token || '');
+    localStorage.setItem('access_token', res?.data?.access_token || '');
+    localStorage.setItem('refresh_token', res?.data?.refresh_token || '');
 
     return res;
 }
@@ -42,8 +42,8 @@ axios.interceptors.response.use(
         return response;
     },
 
-    async (error) => {
-        let { data, config } = error.response;
+    async (error: any) => {
+        let { data, config } = error?.response ?? {};
 
         if (refreshing) {
             return new Promise((resolve) => {
@@ -55,7 +55,7 @@ axios.interceptors.response.use(
         }
     
         // 如果返回的错误是 401 就刷新 token，这里要排除掉刷新的 url，刷新失败不继续刷新
-        if (data.statusCode === 401 && !config.url.includes('/user/refresh')) {
+        if (data?.statusCode === 401 && !config.url.includes('/user/refresh')) {
             refreshing = true;
 
             // 当 refresh 成功之后，修改 refreshing 的值，重新发送队列中的请求，并且把结果通过 resolve 返回。
@@ -93,7 +93,7 @@ export const RefreshTokenTest = () => {
     }, [])
 
     async function login() {
-        const res = await axios.post(
+        const res: any = await axios.post(
             'http://localhost:3000/user/login',
             {
                 username: 'guang',
@@ -101,8 +101,8 @@ export const RefreshTokenTest = () => {
             }
         );
 
-        localStorage.setItem('access_token', res.data.access_token)
-        localStorage.setItem('refresh_token', res.data.refresh_token)
+        localStorage.setItem('access_token', res?.data?.access_token)
+        localStorage.setItem('refresh_token', res?.data?.refresh_token)
     }
 
     async function query() {

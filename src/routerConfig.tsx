@@ -61,7 +61,8 @@ import {
     OnlinePiano,
     ExcelPreview,
     ReactEvent,
-    OverflowTooltips
+    OverflowTooltips,
+    SvgaImg
 } from './components/MyReact'
 
 export interface RouterConfigItem {
@@ -556,6 +557,14 @@ export const routerConfig: RouterConfigItem[] = [
                 text: '文字超出省略号-tooltip',
                 link: 'overflow-tooltips',
                 template: <OverflowTooltips />,
+                icon: null,
+            },
+            {
+                key: 'svga-img',
+                parentKey: 'my-react',
+                text: 'Svga组件封装',
+                link: 'svga-img',
+                template: <SvgaImg />,
                 icon: null,
             },
         ]

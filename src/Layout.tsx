@@ -224,7 +224,7 @@ const renderRouterItem = (list: RouterConfigItem[]) => {
         } = item
 
         const props: any = {
-            key,
+            // key,
             // element: template ?? null,
             // path: link,
         }
@@ -242,6 +242,7 @@ const renderRouterItem = (list: RouterConfigItem[]) => {
 
         return (
             <Route
+                key={key}
                 {...props}
             >
                 {Array.isArray(children) && children?.length && renderRouterItem(children)}
