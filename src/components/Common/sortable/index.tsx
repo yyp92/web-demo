@@ -1,12 +1,10 @@
 import React, { forwardRef, useState, useRef, useEffect } from "react";
-import {Icon, Tooltip} from 'antd'
 import c from 'classnames'
 import { ReactSortable } from "react-sortablejs";
-import {checkIsOverflowed} from '@/utils/utils'
-import Overflow from '@/newComponents/overflow'
+// import Overflow from '@/newComponents/overflow'
 import {throttle} from 'lodash'
 
-import styles from './index.less'
+import styles from './index.module.scss'
 
 interface ReactSortableCompProps {
     list: any[]
@@ -64,12 +62,13 @@ const ReactSortableComp: React.FC<ReactSortableCompProps> = ({
                     key={item.itemId}
                 >
                     <div>
-                        <Overflow
+                        {/* <Overflow
                             text={item.itemName}
                             width={98}
                             ellipsisWidth={84}
                             isMove={isMove}
-                        />
+                        /> */}
+                        {item.itemName}
                     </div>
 
                     {
