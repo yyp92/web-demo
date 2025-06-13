@@ -46,6 +46,7 @@ export const Container = forwardRef<HTMLDivElement, Props>(
     return (
       <Component
         {...props}
+        // @ts-ignore
         ref={ref}
         style={
           {
